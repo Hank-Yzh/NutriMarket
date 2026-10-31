@@ -1,0 +1,91 @@
+# Copy to config/api-keys.yml; all external API configuration can be replaced in this file.
+# You can also replace ${...:} with quoted keys directly. Never commit real secrets.
+spring:
+  # MySQL connection; create the database first using database/create-database.sql.
+  datasource:
+    url: "${MYSQL_URL:jdbc:mysql://127.0.0.1:3306/nutrimarket?connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&characterEncoding=UTF-8}"
+    username: "${MYSQL_USERNAME:nutrimarket}"
+    password: "${MYSQL_PASSWORD:}"
+nutrimarket:
+  procurement:
+    # Orders go to simulated partner stores only. No real supermarket API or payment is invoked.
+    policy-version: procurement-v3
+    search-width: 128
+    checkout-minutes: 5
+    minimum-cohort: 5
+    # Checkout refreshes per basket before expert review; they do not use Agent 4's manual refresh budget.
+    max-checkouts: 20
+    # Promotion labels only break ties between baskets within this fraction of the lowest equivalent total (PM-04).
+    promotion-tie-margin: 0.02
+    # Evidence age Procurement accepts from Agent 4 at checkout.
+    checkout-evidence-age: 24h
+    # Operator-recorded fulfilment fees per store order. Pickup is free unless configured; unlisted delivery fees stay unquoted.
+    store-fees: []
+    #  - {store: "Store A", currency: AUD, delivery: 8.00, pickup: 0}
+    # Assign each reporting username exactly one store; leave empty to disable reports.
+    # Example: report-stores: {expert: "FreshMart Central"}. Product cohorts below minimum-cohort members are suppressed.
+    report-stores: {}
+    # Balanced may spend up to this fraction above the lowest-cost basket on higher recorded range tiers.
+    balanced-margin: 0.15
+    # Simulated partner stores. Every store accepts unless listed; list one to demonstrate a rejected or partial order (UC-06 A4).
+    retailer:
+      max-attempts: 3
+      simulated-outcomes: []
+      #  - {store: "GreenLeaf Grocer", outcome: REJECT, reason: "Store system unavailable", first-attempt-only: true}
+      #  - {store: "ValueBasket Express", outcome: PARTIAL, skus: [VB-TOFU-300], reason: "Out of stock at picking"}
+  market:
+    # LOCAL uses operator-maintained factual products. HTTP uses the documented catalogue adapter.
+    source: LOCAL
+    # Load the synthetic test catalogue (fictional stores, USDA-derived labels) at startup. Test/demo use only.
+    test-catalogue: false
+    catalogue-endpoint: ""
+    catalogue-api-key: "${CATALOGUE_API_KEY:}"
+    catalogue-timeout: 15s
+    operator-usernames: []
+    semantic-enabled: true
+    model: qwen-plus
+    model-timeout: 30s
+    procurement-endpoint: ""
+    procurement-api-key: "${PROCUREMENT_AGENT_API_KEY:}"
+    procurement-timeout: 10s
+  planning:
+    # Reuses the Qwen endpoint/key under integrations.vision and USDA under integrations.nutrition.
+    model: qwen-plus
+    # A 21-meal response takes ~30-55 s to generate.
+    timeout: 120s
+    # Leave blank until Agent 4 is deployed. Published packages remain in the outbox.
+    market-endpoint: ""
+    market-api-key: "${MARKET_AGENT_API_KEY:}"
+    market-timeout: 10s
+  health:
+    # Optional explanation reuses the Qwen base-url and api-key under integrations.vision.
+    summary-model: qwen-plus
+    summary-timeout: 30s
+    # Only listed usernames can review; admin is not an expert. expert is the default Human Expert
+    # account created by schema.sql (expert / elec5620); add real reviewer usernames as needed.
+    expert-usernames: [expert]
+  security:
+    jwt:
+      # Base64 encoded random signing key, at least 32 bytes after decoding. Changing it invalidates existing tokens.
+      secret: "${JWT_SECRET:}"
+      issuer: nutrimarket
+      audience: nutrimarket-api
+      access-token-ttl: 15m
+  integrations:
+    vision:
+      # Default Beijing endpoint. For other regions/workspaces, copy the compatible-mode endpoint from the Bailian console.
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      model: qwen-vl-plus
+      api-key: "${DASHSCOPE_API_KEY:}"
+      # Photos are shrunk before upload; long enough for slow cross-border links.
+      timeout: 120s
+    nutrition:
+      base-url: https://api.nal.usda.gov/fdc/v1
+      api-key: "${USDA_API_KEY:}"
+      timeout: 20s
+    health-agent:
+      # Leave blank to use the local Agent 2; set an endpoint only for a separately deployed receiver.
+      endpoint: ""
+      api-key: "${HEALTH_AGENT_API_KEY:}"
+      timeout: 10s
+      max-attempts: 3

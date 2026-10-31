@@ -1,0 +1,52 @@
+### IntelliJ HTTP Client. Register, then sign in; the response script saves accessToken.
+@baseUrl = http://127.0.0.1:8080
+@username = alice
+@password = My-local-password-123!
+
+### Default account login (available after database initialisation; no registration needed)
+POST {{baseUrl}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "elec5620"
+}
+
+> {%
+    client.test("Default user login succeeded", function() { client.assert(response.status === 200); });
+    if (response.status === 200) client.global.set("accessToken", response.body.accessToken);
+%}
+
+### 1. Register once per username; duplicates return 409
+POST {{baseUrl}}/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+### 2. Sign in without an old or expired Authorization header
+POST {{baseUrl}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+> {%
+    client.test("Login succeeded", function() { client.assert(response.status === 200); });
+    if (response.status === 200) client.global.set("accessToken", response.body.accessToken);
+%}
+
+### 3. Current user
+GET {{baseUrl}}/api/v1/auth/me
+Authorization: Bearer {{accessToken}}
+
+### 4. Current member meal records
+GET {{baseUrl}}/api/v1/dietary-records?page=1&size=20
+Authorization: Bearer {{accessToken}}
+
+### 5. Unauthenticated request (expects 401)
+GET {{baseUrl}}/api/v1/dietary-records

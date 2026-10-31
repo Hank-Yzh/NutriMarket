@@ -1,0 +1,2 @@
+export const states={MATCHING:'Matching…',COMPLETED:'Matched',NEEDS_ATTENTION:'Needs attention',STALE:'Refresh needed',INTERRUPTED:'Matching paused'};
+export const outcomes={MATCHED:'Eligible candidates',UNMATCHED:'No matching products',UNAVAILABLE:'Out of stock',LOW_CONFIDENCE:'Low matching confidence',INCOMPLETE:'Incomplete or mixed evidence',STALE:'Stale evidence',CONSTRAINT_BLOCKED:'Constraint conflict',SOURCE_FAILURE:'Catalogue source failure',MODEL_FAILURE:'Semantic matching failed'};

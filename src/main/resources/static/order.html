@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#234e42"><title>Local order details - NutriMarket</title><link rel="stylesheet" href="/style.css"><script type="module" src="/order.js"></script></head><body class="app-page"><aside class="sidebar"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M24 6C12 5 5 11 8 21c10 4 17-3 16-15Z" fill="currentColor"/><path d="m10 23 11-13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span><span>NutriMarket<span class="brand-sub">Daily meals · A clearer picture</span></span></a><p class="nav-label">MY NUTRITION SPACE</p><nav aria-label="Main navigation"><a class="nav-item" href="/"><span aria-hidden="true">▦</span> Meal records</a><a class="nav-item "  href="/upload.html"><span aria-hidden="true">＋</span> Upload a meal</a><a class="nav-item" href="/health.html"><span aria-hidden="true">♡</span> Health assessment</a><a class="nav-item" href="/planning.html"><span aria-hidden="true">▤</span> Meal planning</a><a class="nav-item" href="/market.html"><span aria-hidden="true">⌑</span> Market matching</a><a class="nav-item" href="/procurement.html"><span aria-hidden="true">▱</span> Shopping baskets</a><a class="nav-item active" aria-current="page" href="/orders.html"><span aria-hidden="true">✓</span> Orders</a><a class="nav-item" href="/pantry.html"><span aria-hidden="true">▣</span> Pantry</a></nav><div class="sidebar-note"><span class="small-leaf" aria-hidden="true">✳</span><strong>Eat well. Keep a record.</strong><p>Start with a daily meal.<br>Understand your eating habits.</p></div><div class="account"><a class="account-link" href="/profile.html"><span aria-hidden="true">◎</span> Health profile</a><span class="avatar" aria-hidden="true">N</span><span id="username">Loading</span><button id="logout" class="text-button" type="button">Sign out</button></div></aside><div class="workspace"><header class="page-header"><div><span class="eyebrow">PROCUREMENT · SIMULATED PARTNER STORES</span><h1>Order and fulfilment<span class="heading-dot">.</span></h1><p>Your order outcome, store fulfilment details and everything it was based on.</p></div><a href="/procurement.html">Basket overview →</a></header><p id="message" role="status" aria-live="polite">Loading...</p><main>
+<div id="content" hidden>
+<section class="panel">
+<div class="section-heading"><div><span class="eyebrow">ORDER NUMBER</span><h2 id="order-number"></h2></div><span id="status" class="chip"></span></div>
+<p id="meta"></p>
+<p id="outcome" class="notice"></p>
+<dl id="order-summary" class="summary-rows"></dl>
+<p id="mode-note" class="field-help"></p>
+</section>
+<section class="panel" id="actions-panel" hidden>
+<h2>The store could not fulfil every item</h2>
+<p>The result is recorded and this order cannot be submitted twice. Choose how to continue.</p>
+<div class="action-grid">
+<div><button id="recover" class="primary" type="button">Recovery</button><p class="field-help" id="recover-help">Resubmit only the rejected items to the same store.</p></div>
+<div><button id="reoptimise" type="button">Re-optimisation</button><p class="field-help">Cancel the accepted store orders and rebuild the whole basket without the rejected products. You review it before submitting again.</p></div>
+<div><button id="cancel-failed" class="danger" type="button">Cancel order</button><p class="field-help">Cancel every store order. Nothing is ordered for this basket.</p></div>
+</div>
+</section>
+<section class="panel">
+<h2>Fulfilment by store</h2>
+<div id="stores"></div>
+<button id="cancel" class="danger" type="button" hidden>Cancel order</button>
+</section>
+<section class="panel">
+<h2>Linked to this order</h2>
+<dl id="links" class="summary-rows wide"></dl>
+</section>
+<details class="panel"><summary>Ordered products and evidence</summary><div id="lines"></div></details>
+<details class="panel"><summary>Order history</summary><div id="history" class="table-scroll"></div></details>
+</div>
+</main><footer class="page-footer">Orders are sent to simulated partner stores only. No payment, real supermarket submission or stock reservation takes place.</footer></div></body></html>

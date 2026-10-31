@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nutrimarket.nutrimarket.dao.dietary.IntakeRecordMapper">
+    <select id="find" resultType="com.nutrimarket.nutrimarket.dao.dietary.IntakeRecordMapper$RecordRow">
+        SELECT record_id, member_id, fingerprint, fingerprint_member_id, document, photo, media_type, status, created_at, expires_at
+        FROM dietary_record WHERE record_id = #{id}
+    </select>
+    <insert id="insert">
+        INSERT INTO dietary_record
+            (record_id, member_id, fingerprint, fingerprint_member_id, document, photo, media_type, status, created_at, expires_at)
+        VALUES (#{recordId}, #{memberId}, #{fingerprint}, #{fingerprintMemberId}, #{document}, #{photo,jdbcType=LONGVARBINARY},
+                #{mediaType}, #{status}, #{createdAt}, #{expiresAt,jdbcType=TIMESTAMP})
+    </insert>
+    <update id="updateDocument">
+        UPDATE dietary_record SET document = #{document}, status = #{status}, expires_at = #{expiresAt,jdbcType=TIMESTAMP}
+        WHERE record_id = #{recordId}
+    </update>
+    <update id="clearPhoto">UPDATE dietary_record SET photo = NULL WHERE record_id = #{id}</update>
+    <sql id="memberFilter">
+        WHERE member_id = #{memberId}
+        <if test="status != null">
+            AND (CASE WHEN status = 'PENDING_MEMBER_CONFIRMATION' AND expires_at &lt;= #{now}
+                      THEN 'EXPIRED' ELSE status END) = #{status}
+        </if>
+    </sql>
+    <!-- Never load photo blobs when listing records. Tie-break by UUID for stable pagination. -->
+    <select id="findPage" resultType="com.nutrimarket.nutrimarket.dao.dietary.IntakeRecordMapper$RecordRow">
+        SELECT record_id, member_id, fingerprint, fingerprint_member_id, document, NULL AS photo, media_type, status, created_at, expires_at
+        FROM dietary_record <include refid="memberFilter"/>
+        ORDER BY created_at DESC, record_id ASC LIMIT #{size} OFFSET #{offset}
+    </select>
+    <select id="count" resultType="long">
+        SELECT COUNT(*) FROM dietary_record <include refid="memberFilter"/>
+    </select>
+</mapper>

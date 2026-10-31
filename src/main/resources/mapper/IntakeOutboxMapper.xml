@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nutrimarket.nutrimarket.dao.dietary.IntakeOutboxMapper">
+    <insert id="insert">INSERT INTO dietary_outbox (record_id, payload) VALUES (#{id}, #{payload})</insert>
+    <select id="find" resultType="com.nutrimarket.nutrimarket.dao.dietary.IntakeOutboxMapper$OutboxRow">
+        SELECT record_id, payload, delivered, attempts, last_error FROM dietary_outbox WHERE record_id = #{id}
+    </select>
+    <select id="findPending" resultType="com.nutrimarket.nutrimarket.dao.dietary.IntakeOutboxMapper$OutboxRow">
+        SELECT record_id, payload, delivered, attempts, last_error FROM dietary_outbox
+        WHERE delivered = FALSE AND attempts &lt; #{maxAttempts} ORDER BY updated_at, record_id LIMIT 20
+    </select>
+    <update id="incrementAttempts">
+        UPDATE dietary_outbox SET attempts = attempts + 1, updated_at = CURRENT_TIMESTAMP(3) WHERE record_id = #{id}
+    </update>
+    <update id="markDelivered">
+        UPDATE dietary_outbox SET delivered = TRUE, last_error = NULL, updated_at = CURRENT_TIMESTAMP(3) WHERE record_id = #{id}
+    </update>
+    <update id="recordFailure">
+        UPDATE dietary_outbox SET last_error = #{error}, updated_at = CURRENT_TIMESTAMP(3) WHERE record_id = #{id}
+    </update>
+</mapper>

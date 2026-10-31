@@ -1,0 +1,21 @@
+# Public, deterministic fixture key for tests ONLY. Never imported by production.
+nutrimarket:
+  market:
+    delivery-enabled: false
+  planning:
+    delivery-enabled: false
+  health:
+    scheduler-enabled: false
+  pipeline:
+    enabled: false
+  security:
+    jwt:
+      secret: VGhpcy1pcy1hLXRlc3Qta2V5LW9ubHktbm90LWZvci1wcm9k
+      issuer: nutrimarket
+      audience: nutrimarket-api
+      access-token-ttl: 15m
+spring:
+  sql:
+    init:
+      # Tests create their own fixtures; demo-data.sql is MySQL-specific presentation data.
+      data-locations: optional:classpath:no-demo-data.sql

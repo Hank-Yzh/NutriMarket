@@ -1,0 +1,6451 @@
+[
+ {
+  "productId": "4f7912e7-3c12-5438-96e0-efde05599c08",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-OAT-750",
+   "name": "Rolled Oats 750g",
+   "brand": "Value Basket",
+   "category": "Breakfast cereals",
+   "ingredientId": "oats",
+   "preparation": "RAW",
+   "cookedYieldFactor": 5.3,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.2,
+   "packageGrams": 750,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173905 with edible yield 5.3.",
+   "ingredients": [
+    "Wholegrain rolled oats (100%)"
+   ],
+   "allergens": [
+    "gluten"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1527,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 13.5,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 8.3,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 63.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 9.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 21,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "a3e3b846-8248-56eb-b3a9-1bd21bc36ca5",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-OAT-1000",
+   "name": "Wholegrain Quick Oats 1kg",
+   "brand": "Harbour Fresh",
+   "category": "Breakfast cereals",
+   "ingredientId": "oats",
+   "preparation": "RAW",
+   "cookedYieldFactor": 5.3,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 4.8,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173905 with edible yield 5.3.",
+   "ingredients": [
+    "Wholegrain oats (100%)"
+   ],
+   "allergens": [
+    "gluten"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1527,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 13.5,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 8.3,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 63.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 9.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 21,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "6643bdd8-9415-5125-8bd6-72123e2eb1f9",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-OAT-500",
+   "name": "Traditional Rolled Oats 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Breakfast cereals",
+   "ingredientId": "oats",
+   "preparation": "RAW",
+   "cookedYieldFactor": 5.3,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 3.6,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173905 with edible yield 5.3.",
+   "ingredients": [
+    "Organic rolled oats (100%)"
+   ],
+   "allergens": [
+    "gluten"
+   ],
+   "mayContain": [
+    "peanut",
+    "tree nuts",
+    "sesame"
+   ],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1527,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 13.5,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 8.3,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 63.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 9.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 21,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "11e8caf1-d2b7-5b41-b04d-f39f9b66f191",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-RICE-1000",
+   "name": "Australian Brown Rice 1kg",
+   "brand": "Value Basket",
+   "category": "Rice & grains",
+   "ingredientId": "rice",
+   "preparation": "RAW",
+   "cookedYieldFactor": 2.9,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 3.2,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169704 with edible yield 2.9.",
+   "ingredients": [
+    "Brown rice (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1448,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 7.9,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.9,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 73.4,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 4.7,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 11,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "69e1bc1b-7cc3-59c3-8cb1-b3492ea82b50",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-RICE-250",
+   "name": "Microwave Brown Rice 250g",
+   "brand": "Harbour Fresh",
+   "category": "Rice & grains",
+   "ingredientId": "rice",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.0,
+   "packageGrams": 250,
+   "promotion": "Member price",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169704.",
+   "ingredients": [
+    "Cooked brown rice (99%)",
+    "Rice bran oil"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 499,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 1.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 25.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.6,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "74c8d26c-c6df-553a-a03e-af1f9eed35dc",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-RICE-500",
+   "name": "Brown Rice Pouch 2 x 250g",
+   "brand": "Green Leaf Organics",
+   "category": "Rice & grains",
+   "ingredientId": "rice",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 4.2,
+   "packageGrams": 500,
+   "promotion": "2 for $7",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169704.",
+   "ingredients": [
+    "Cooked organic brown rice (99%)",
+    "Sunflower oil"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 499,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 1.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 25.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.6,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "d5d0e763-b7f4-55c7-99f5-7c06fa42ff1c",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-POT-2000",
+   "name": "Washed Potatoes 2kg",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "potato",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 3.5,
+   "packageGrams": 2000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170438 with edible yield 0.9.",
+   "ingredients": [
+    "Potatoes"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 318,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.7,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.09,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 17.9,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.7,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "d87d9503-a0c8-5f70-b539-6867beb919e3",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-POT-2000",
+   "name": "Brushed Potatoes 2kg",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "potato",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 4.5,
+   "packageGrams": 2000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170438 with edible yield 0.9.",
+   "ingredients": [
+    "Potatoes"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 318,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.7,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.09,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 17.9,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.7,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "c56d9b8f-7b7a-51d4-832f-68cc0c3c2f18",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-POT-1000",
+   "name": "Sebago Potatoes 1kg",
+   "brand": "Green Leaf Organics",
+   "category": "Fresh vegetables",
+   "ingredientId": "potato",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 2.9,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170438 with edible yield 0.9.",
+   "ingredients": [
+    "Potatoes"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 318,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.7,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.09,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 17.9,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.7,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "c36e1600-591e-517a-8cff-2716423e22e0",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-CHK-1000",
+   "name": "Chicken Breast Fillets 1kg",
+   "brand": "Harbour Fresh",
+   "category": "Meat & poultry",
+   "ingredientId": "chicken",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.73,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 13.0,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171477 with edible yield 0.73.",
+   "ingredients": [
+    "Chicken breast (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 489,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 22.6,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 53,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "af4537b1-171c-5640-9579-5649a7e10876",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-CHK-500",
+   "name": "Free Range Chicken Breast 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Meat & poultry",
+   "ingredientId": "chicken",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.73,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 9.5,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171477 with edible yield 0.73.",
+   "ingredients": [
+    "Free range chicken breast (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 489,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 22.6,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 53,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "bc8da271-3229-53a8-a56e-83e6927756ff",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-CHK-200",
+   "name": "Roast Chicken Breast Sliced 200g",
+   "brand": "Value Basket",
+   "category": "Deli",
+   "ingredientId": "chicken",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 6.0,
+   "packageGrams": 200,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171477.",
+   "ingredients": [
+    "Roasted chicken breast (98%)",
+    "Salt"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 670,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 31.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 3.7,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 73,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "75ced091-f701-5937-8eaf-77431a61fc8d",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-TOFU-450",
+   "name": "Firm Tofu 450g",
+   "brand": "Green Leaf Organics",
+   "category": "Tofu & plant protein",
+   "ingredientId": "tofu",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 3.5,
+   "packageGrams": 450,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 172475.",
+   "ingredients": [
+    "Water",
+    "Soybeans (40%)",
+    "Calcium sulphate"
+   ],
+   "allergens": [
+    "soy"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 584,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 17.3,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 9.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 2.8,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.3,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 14,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "9dfd2023-c95d-55d8-a38d-0a5664a2307c",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-TOFU-300",
+   "name": "Organic Firm Tofu 300g",
+   "brand": "Harbour Fresh",
+   "category": "Tofu & plant protein",
+   "ingredientId": "tofu",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 4.2,
+   "packageGrams": 300,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 172475.",
+   "ingredients": [
+    "Water",
+    "Organic soybeans (42%)",
+    "Calcium sulphate"
+   ],
+   "allergens": [
+    "soy"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 584,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 17.3,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 9.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 2.8,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.3,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 14,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "5d6628d7-e819-5f12-b4be-b4f414f29b30",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-TOFU-300",
+   "name": "Firm Tofu 300g",
+   "brand": "Value Basket",
+   "category": "Tofu & plant protein",
+   "ingredientId": "tofu",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.6,
+   "packageGrams": 300,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 172475.",
+   "ingredients": [
+    "Water",
+    "Soybeans (40%)",
+    "Calcium sulphate"
+   ],
+   "allergens": [
+    "soy"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 584,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 17.3,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 9.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 2.8,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.3,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 14,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "b2820b7c-401c-5ebf-91b3-2885a3bbbb40",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-LEN-500",
+   "name": "Red Lentils 500g",
+   "brand": "Value Basket",
+   "category": "Legumes",
+   "ingredientId": "lentils",
+   "preparation": "RAW",
+   "cookedYieldFactor": 2.9,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.4,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 172421 with edible yield 2.9.",
+   "ingredients": [
+    "Red lentils (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1365,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 26.2,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 1.1,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 57.8,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 23.4,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 6,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "14d9cff0-45d7-5c6f-b4ea-bab1617d5b69",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-LEN-250",
+   "name": "Cooked Lentils Ready Pouch 250g",
+   "brand": "Harbour Fresh",
+   "category": "Legumes",
+   "ingredientId": "lentils",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.2,
+   "packageGrams": 250,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 172421.",
+   "ingredients": [
+    "Cooked brown lentils (99%)",
+    "Water"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 471,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 9.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.39,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 19.9,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 8.1,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "50b226c2-7d26-53d2-a4c1-8ffc29efe426",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-LEN-500",
+   "name": "Brown Lentils 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Legumes",
+   "ingredientId": "lentils",
+   "preparation": "RAW",
+   "cookedYieldFactor": 2.9,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 2.8,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 172421 with edible yield 2.9.",
+   "ingredients": [
+    "Brown lentils (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1365,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 26.2,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 1.1,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 57.8,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 23.4,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 6,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "af8bae2b-b2e4-5e58-a2d8-25c26cf9f85d",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-LEN-CAN",
+   "name": "Canned Brown Lentils 400g (240g drained)",
+   "brand": "Green Leaf Organics",
+   "category": "Legumes",
+   "ingredientId": "lentils",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 1.6,
+   "packageGrams": 240,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 172421.",
+   "ingredients": [
+    "Brown lentils (60%)",
+    "Water",
+    "Salt"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 379,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 6.8,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.39,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 16.1,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 8.1,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "990a8c24-5178-5206-b6bd-2b3c3b07b0af",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-EGG-700",
+   "name": "Free Range Eggs 12 pack 700g",
+   "brand": "Value Basket",
+   "category": "Eggs",
+   "ingredientId": "egg",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.88,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 6.5,
+   "packageGrams": 700,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173424 with edible yield 0.88.",
+   "ingredients": [
+    "Free range eggs"
+   ],
+   "allergens": [
+    "egg"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 554,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 11.1,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 9.6,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.98,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 107,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "be0ec124-434a-50ef-9dc9-a88116a46423",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-EGG-600",
+   "name": "Cage Free Eggs 12 pack 600g",
+   "brand": "Green Leaf Organics",
+   "category": "Eggs",
+   "ingredientId": "egg",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.88,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 5.2,
+   "packageGrams": 600,
+   "promotion": "",
+   "availability": "OUT_OF_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173424 with edible yield 0.88.",
+   "ingredients": [
+    "Cage free eggs"
+   ],
+   "allergens": [
+    "egg"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 554,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 11.1,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 9.6,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.98,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 107,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "705bcc93-7f0f-57a9-85e9-83c7538f56f4",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-EGG-100",
+   "name": "Hard Boiled Eggs 2 pack 100g",
+   "brand": "Harbour Fresh",
+   "category": "Eggs",
+   "ingredientId": "egg",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 2.5,
+   "packageGrams": 100,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173424.",
+   "ingredients": [
+    "Hard-boiled free range eggs"
+   ],
+   "allergens": [
+    "egg"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 629,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 12.6,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 10.9,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 1.1,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 122,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "6d238463-f7d4-5d55-ad4e-f919af89c69f",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-EGG-700",
+   "name": "Free Range Eggs 12 pack 700g",
+   "brand": "Green Leaf Organics",
+   "category": "Eggs",
+   "ingredientId": "egg",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.88,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 7.2,
+   "packageGrams": 700,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173424 with edible yield 0.88.",
+   "ingredients": [
+    "Free range eggs"
+   ],
+   "allergens": [
+    "egg"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 554,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 11.1,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 9.6,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.98,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 107,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "158c9fdf-eab0-51d7-8c42-38cef6a3564b",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-YOG-1000",
+   "name": "Natural Low Fat Yoghurt 1kg",
+   "brand": "Value Basket",
+   "category": "Dairy",
+   "ingredientId": "yogurt",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 4.0,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170886.",
+   "ingredients": [
+    "Skim milk",
+    "Milk solids",
+    "Live cultures"
+   ],
+   "allergens": [
+    "milk"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 256,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 5.2,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 1.6,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 7.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 69,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "29fbe749-6711-5c13-9073-335b145a4bbd",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-YOG-500",
+   "name": "Natural Low Fat Yoghurt 500g",
+   "brand": "Harbour Fresh",
+   "category": "Dairy",
+   "ingredientId": "yogurt",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.2,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170886.",
+   "ingredients": [
+    "Skim milk",
+    "Milk solids",
+    "Live cultures"
+   ],
+   "allergens": [
+    "milk"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 256,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 5.2,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 1.6,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 7.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 69,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "ce6c9f93-51cb-543c-a78c-e809e9778241",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-YOG-1000",
+   "name": "Organic Natural Low Fat Yoghurt 1kg",
+   "brand": "Green Leaf Organics",
+   "category": "Dairy",
+   "ingredientId": "yogurt",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 4.6,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170886.",
+   "ingredients": [
+    "Organic skim milk",
+    "Organic milk solids",
+    "Live cultures"
+   ],
+   "allergens": [
+    "milk"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 256,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 5.2,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 1.6,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 7.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 69,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "aaaec3a3-b141-5f40-8227-88d77d24c894",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-YOG-GREEK",
+   "name": "Greek Style Yoghurt 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Dairy",
+   "ingredientId": "yogurt",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 5.0,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170886.",
+   "ingredients": [
+    "Milk",
+    "Cream",
+    "Milk solids",
+    "Live cultures"
+   ],
+   "allergens": [
+    "milk"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 256,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 9.5,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 7.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 69,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "36bc89e9-dd30-598f-b21d-1af0cd37cb12",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-BROC-350",
+   "name": "Broccoli each (approx. 350g)",
+   "brand": "Green Leaf Organics",
+   "category": "Fresh vegetables",
+   "ingredientId": "broccoli",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.85,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 2.5,
+   "packageGrams": 350,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169967 with edible yield 0.85.",
+   "ingredients": [
+    "Broccoli"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 121,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.36,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 6.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.9,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 34,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "73614e0d-59c1-5d7a-ab53-cf28a10d5404",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-BROC-400",
+   "name": "Broccoli Florets 400g",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "broccoli",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.95,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.8,
+   "packageGrams": 400,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169967 with edible yield 0.95.",
+   "ingredients": [
+    "Broccoli florets"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 135,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.3,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.4,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 6.8,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 3.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 38,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "9943db9e-bd89-508a-8be6-b9d7cff5f0cd",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-BROC-500",
+   "name": "Broccoli 500g",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "broccoli",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.85,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 3.0,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169967 with edible yield 0.85.",
+   "ingredients": [
+    "Broccoli"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 121,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.36,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 6.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.9,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 34,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "0b78cd65-6e15-57b9-920d-dac1f78736da",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-CAR-1000",
+   "name": "Carrots 1kg",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "carrot",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 1.8,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170394 with edible yield 0.9.",
+   "ingredients": [
+    "Carrots"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 128,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.68,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.17,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 7.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.8,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 51,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "c5775e9e-9eb7-5d27-b886-a5cf8d229f8a",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-CAR-500",
+   "name": "Baby Carrots 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Fresh vegetables",
+   "ingredientId": "carrot",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.95,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 2.3,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170394 with edible yield 0.95.",
+   "ingredients": [
+    "Baby carrots"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 135,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.72,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.18,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 7.7,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.9,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 54,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "915e11c0-e4a4-59ff-97dc-5c3034133f3c",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-CAR-1000",
+   "name": "Carrots 1kg",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "carrot",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 2.5,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170394 with edible yield 0.9.",
+   "ingredients": [
+    "Carrots"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 128,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.68,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.17,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 7.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.8,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 51,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "edc522d7-8e8d-59b7-b5f2-da47f3d0afe8",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-SPIN-280",
+   "name": "Baby Spinach 280g",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "spinach",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 4.0,
+   "packageGrams": 280,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168463 with edible yield 0.9.",
+   "ingredients": [
+    "Baby spinach leaves"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 84,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.24,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 62,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "04975e45-a6e9-553c-bf8c-e779a54616ae",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-SPIN-120",
+   "name": "Baby Spinach 120g",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "spinach",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.5,
+   "packageGrams": 120,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168463 with edible yield 0.9.",
+   "ingredients": [
+    "Baby spinach leaves"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 84,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.24,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 62,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "1ab76ed1-e980-5e64-ab5f-e5a37b1478e3",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-SPIN-250",
+   "name": "English Spinach Bunch 250g",
+   "brand": "Green Leaf Organics",
+   "category": "Fresh vegetables",
+   "ingredientId": "spinach",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 3.2,
+   "packageGrams": 250,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168463 with edible yield 0.9.",
+   "ingredients": [
+    "English spinach"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": false,
+   "per100g": {
+    "1008": {
+     "amount": 84,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.24,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 62,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "e4655ffc-31a0-54ad-8026-d865f11b9058",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-SPIN-280",
+   "name": "Organic Baby Spinach 280g",
+   "brand": "Green Leaf Organics",
+   "category": "Fresh vegetables",
+   "ingredientId": "spinach",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 4.5,
+   "packageGrams": 280,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168463 with edible yield 0.9.",
+   "ingredients": [
+    "Organic baby spinach leaves"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 84,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.24,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 62,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "cd341013-4829-5ac9-a524-99530de9a826",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-BAN-1000",
+   "name": "Cavendish Bananas 1kg",
+   "brand": "Value Basket",
+   "category": "Fruit",
+   "ingredientId": "banana",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.65,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 3.9,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173944 with edible yield 0.65.",
+   "ingredients": [
+    "Bananas"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 235,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.71,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.22,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 14.7,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.7,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "d5746dba-2038-5a54-8013-93427711a138",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-BAN-1000",
+   "name": "Lady Finger Bananas 1kg",
+   "brand": "Green Leaf Organics",
+   "category": "Fruit",
+   "ingredientId": "banana",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.65,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 5.5,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173944 with edible yield 0.65.",
+   "ingredients": [
+    "Bananas"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 235,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.71,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.22,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 14.7,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.7,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "82bddafe-bb41-5da6-af51-4c40fb51cab4",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-BAN-1000",
+   "name": "Bananas 1kg",
+   "brand": "Harbour Fresh",
+   "category": "Fruit",
+   "ingredientId": "banana",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.65,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 4.5,
+   "packageGrams": 1000,
+   "promotion": "Fresh pick special",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173944 with edible yield 0.65.",
+   "ingredients": [
+    "Bananas"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 235,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.71,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.22,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 14.7,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.7,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "e248acdb-b614-519e-9abd-f672449c5733",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-APL-1000",
+   "name": "Pink Lady Apples 1kg",
+   "brand": "Green Leaf Organics",
+   "category": "Fruit",
+   "ingredientId": "apple",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 5.5,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171688 with edible yield 0.9.",
+   "ingredients": [
+    "Apples"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 190,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.23,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.16,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 12.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "09ee6313-50a1-5cdb-b2f4-83f1bf9d67ef",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-APL-1000",
+   "name": "Royal Gala Apples 1kg",
+   "brand": "Value Basket",
+   "category": "Fruit",
+   "ingredientId": "apple",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 4.5,
+   "packageGrams": 1000,
+   "promotion": "Weekly special",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171688 with edible yield 0.9.",
+   "ingredients": [
+    "Apples"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 190,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.23,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.16,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 12.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "acb5b5a5-652f-5d93-b09b-ae924df965f8",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-APL-1000",
+   "name": "Granny Smith Apples 1kg",
+   "brand": "Harbour Fresh",
+   "category": "Fruit",
+   "ingredientId": "apple",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 5.0,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171688 with edible yield 0.9.",
+   "ingredients": [
+    "Apples"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 190,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.23,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.16,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 12.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "e171e935-3150-5273-b1d5-799976a117a2",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-OIL-690",
+   "name": "Extra Virgin Olive Oil 750ml (690g)",
+   "brand": "Harbour Fresh",
+   "category": "Oils",
+   "ingredientId": "olive_oil",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 12.0,
+   "packageGrams": 690,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171413.",
+   "ingredients": [
+    "Extra virgin olive oil (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 3588,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 103.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "2075308d-e700-577e-b7bf-bd98f1d06df9",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-OIL-915",
+   "name": "Light Olive Oil 1L (915g)",
+   "brand": "Value Basket",
+   "category": "Oils",
+   "ingredientId": "olive_oil",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 9.5,
+   "packageGrams": 915,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171413.",
+   "ingredients": [
+    "Refined olive oil",
+    "Virgin olive oil"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 3588,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 103.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "88832529-2114-59ad-91b4-0a8cb213587a",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-OIL-460",
+   "name": "Australian Extra Virgin Olive Oil 500ml (460g)",
+   "brand": "Green Leaf Organics",
+   "category": "Oils",
+   "ingredientId": "olive_oil",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 11.0,
+   "packageGrams": 460,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171413.",
+   "ingredients": [
+    "Australian extra virgin olive oil (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 3588,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 103.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "edbaface-972e-558a-82e7-638e4103f61d",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-CHK-MINCE-500",
+   "name": "Chicken Mince 500g",
+   "brand": "Value Basket",
+   "category": "Meat & poultry",
+   "ingredientId": "chicken",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.73,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 6.5,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Deliberately mapped to the chicken breast ingredient to test the cut/form check; nutrition derived from USDA FoodData Central fdcId 171477 with edible yield 0.73.",
+   "ingredients": [
+    "Chicken mince (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 509,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 22.9,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.6,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 55,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "996b6434-8747-56bf-9211-e4dcc2b19659",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-WRICE-1000",
+   "name": "Long Grain White Rice 1kg",
+   "brand": "Value Basket",
+   "category": "Rice & grains",
+   "ingredientId": "white_rice",
+   "preparation": "RAW",
+   "cookedYieldFactor": 2.9,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.4,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168878 with edible yield 2.9.",
+   "ingredients": [
+    "Long grain white rice (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1577.4,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 7.8,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.81,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 81.78,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.16,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2.9,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "0af12798-7eb7-565d-b33d-00e31741d599",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-JRICE-250",
+   "name": "Microwave Steamed White Rice 250g",
+   "brand": "Harbour Fresh",
+   "category": "Rice & grains",
+   "ingredientId": "white_rice",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 2.8,
+   "packageGrams": 250,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168878.",
+   "ingredients": [
+    "Long grain white rice (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 543.9,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.69,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.28,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 28.2,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.4,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "739c07ed-23e2-5c34-ae8d-fbf1631b1633",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-RNOOD-375",
+   "name": "Rice Stick Noodles 375g",
+   "brand": "Harbour Fresh",
+   "category": "Noodles",
+   "ingredientId": "rice_noodles",
+   "preparation": "RAW",
+   "cookedYieldFactor": 2.4,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 2.9,
+   "packageGrams": 375,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168914 with edible yield 2.4.",
+   "ingredients": [
+    "Rice flour",
+    "Water"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1084.5,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 4.3,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.48,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 57.6,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.4,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 45.6,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "e86a5d30-0b24-5e93-9377-49fe99efd961",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-RNOOD-400",
+   "name": "Fresh Rice Noodles 400g",
+   "brand": "Value Basket",
+   "category": "Noodles",
+   "ingredientId": "rice_noodles",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.5,
+   "packageGrams": 400,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168914.",
+   "ingredients": [
+    "Rice flour",
+    "Water"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 451.9,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.79,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.2,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 24.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 19.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "4abe1d6e-6f86-556e-bfa3-d0dae58aae77",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-PASTA-500",
+   "name": "Wholemeal Spaghetti 500g",
+   "brand": "Value Basket",
+   "category": "Pasta",
+   "ingredientId": "pasta",
+   "preparation": "RAW",
+   "cookedYieldFactor": 2.4,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 1.9,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168910 with edible yield 2.4.",
+   "ingredients": [
+    "Wholemeal durum wheat semolina (100%)"
+   ],
+   "allergens": [
+    "gluten"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1496.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 14.38,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 4.1,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 72.24,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 9.36,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 9.6,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "7f94a328-5ae0-5335-ae41-ba7f2d7176aa",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-PASTA-500",
+   "name": "Organic Wholemeal Penne 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Pasta",
+   "ingredientId": "pasta",
+   "preparation": "RAW",
+   "cookedYieldFactor": 2.4,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 3.9,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168910 with edible yield 2.4.",
+   "ingredients": [
+    "Wholemeal durum wheat semolina (100%)"
+   ],
+   "allergens": [
+    "gluten"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1496.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 14.38,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 4.1,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 72.24,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 9.36,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 9.6,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "29f215c8-5c31-51c2-8f94-7fa023e1c84f",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-QUIN-500",
+   "name": "Organic White Quinoa 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Rice & grains",
+   "ingredientId": "quinoa",
+   "preparation": "RAW",
+   "cookedYieldFactor": 2.7,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 6.5,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168917 with edible yield 2.7.",
+   "ingredients": [
+    "White quinoa (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1355.6,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 11.88,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 5.18,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 57.51,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 7.56,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 18.9,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "a03dd7c4-0dae-5264-8b64-aeb0ff1b4523",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-QUIN-250",
+   "name": "Microwave Quinoa 250g",
+   "brand": "Harbour Fresh",
+   "category": "Rice & grains",
+   "ingredientId": "quinoa",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.9,
+   "packageGrams": 250,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168917.",
+   "ingredients": [
+    "White quinoa (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 502.1,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 4.4,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 1.92,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 21.3,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.8,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 7.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "d003a639-c5b9-5aff-b3fe-4fe9f0079459",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-SWP-1000",
+   "name": "Gold Sweet Potato 1kg",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "sweet_potato",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.8,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 3.9,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168483 with edible yield 0.8.",
+   "ingredients": [
+    "Gold sweet potato"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 301.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.61,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.12,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 16.56,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.64,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 28.8,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "c7a8aa9e-cc2d-52c9-b1e3-697b468354dd",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-SWP-1000",
+   "name": "Sweet Potato Loose 1kg",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "sweet_potato",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.8,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 4.5,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168483 with edible yield 0.8.",
+   "ingredients": [
+    "Gold sweet potato"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 301.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.61,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.12,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 16.56,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.64,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 28.8,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "af526561-89b9-57a6-87b5-a3d543b334ce",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-BREAD-700",
+   "name": "Wholemeal Sandwich Bread 700g",
+   "brand": "Harbour Fresh",
+   "category": "Bakery",
+   "ingredientId": "wholemeal_bread",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.6,
+   "packageGrams": 700,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 172688.",
+   "ingredients": [
+    "Wholemeal wheat flour",
+    "Water",
+    "Yeast",
+    "Wheat gluten",
+    "Salt",
+    "Canola oil"
+   ],
+   "allergens": [
+    "gluten"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1054.4,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 12.4,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 3.5,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 42.7,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 6.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 455.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "6847a996-c7e4-528f-9196-55e348a6acf8",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-BREAD-650",
+   "name": "Organic Wholemeal Loaf 650g",
+   "brand": "Green Leaf Organics",
+   "category": "Bakery",
+   "ingredientId": "wholemeal_bread",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 5.8,
+   "packageGrams": 650,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 172688.",
+   "ingredients": [
+    "Wholemeal wheat flour",
+    "Water",
+    "Yeast",
+    "Wheat gluten",
+    "Salt",
+    "Canola oil"
+   ],
+   "allergens": [
+    "gluten"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1054.4,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 12.4,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 3.5,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 42.7,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 6.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 455.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "727df79c-bd5b-5e74-9202-1f72b53f0f06",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-SALM-250",
+   "name": "Atlantic Salmon Fillets Skin Off 250g",
+   "brand": "Harbour Fresh",
+   "category": "Seafood",
+   "ingredientId": "salmon",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.75,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 9.5,
+   "packageGrams": 250,
+   "promotion": "",
+   "availability": "OUT_OF_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 175168 with edible yield 0.75. Out of stock at this store this week (seafood supply shortage).",
+   "ingredients": [
+    "Atlantic salmon (100%)"
+   ],
+   "allergens": [
+    "fish"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "pescatarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 646.4,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 16.58,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 9.3,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 45.8,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "b7c24c4b-76e3-5855-9152-4d4470e6229d",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-SALM-500",
+   "name": "Tasmanian Salmon Portions 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Seafood",
+   "ingredientId": "salmon",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.75,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 17.0,
+   "packageGrams": 500,
+   "promotion": "Member price",
+   "availability": "OUT_OF_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 175168 with edible yield 0.75. Out of stock at this store this week (seafood supply shortage).",
+   "ingredients": [
+    "Atlantic salmon (100%)"
+   ],
+   "allergens": [
+    "fish"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "pescatarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 646.4,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 16.58,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 9.3,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 45.8,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "08a30a8f-e82e-5cfc-a149-7eb6c13c485a",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-PRAWN-200",
+   "name": "Cooked Peeled Prawns 200g",
+   "brand": "Harbour Fresh",
+   "category": "Seafood",
+   "ingredientId": "prawns",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 9.0,
+   "packageGrams": 200,
+   "promotion": "",
+   "availability": "OUT_OF_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 175180. Out of stock at this store this week (seafood supply shortage).",
+   "ingredients": [
+    "Cooked prawns (100%)"
+   ],
+   "allergens": [
+    "shellfish"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "pescatarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 414.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 24.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.28,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 111.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "17501420-3511-5029-8be0-323a39da0fce",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-PRAWN-500",
+   "name": "Frozen Cooked Prawns 500g",
+   "brand": "Value Basket",
+   "category": "Seafood",
+   "ingredientId": "prawns",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 15.0,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "OUT_OF_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 175180. Out of stock at this store this week (seafood supply shortage).",
+   "ingredients": [
+    "Cooked prawns (100%)"
+   ],
+   "allergens": [
+    "shellfish"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "pescatarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 414.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 24.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.28,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 111.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "7045e40f-3a78-5716-b89a-80429a2e9e6c",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-BEEF-500",
+   "name": "Beef Chuck Diced 500g",
+   "brand": "Value Basket",
+   "category": "Meat",
+   "ingredientId": "beef",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.7,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 8.5,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171205 with edible yield 0.7.",
+   "ingredients": [
+    "Beef chuck (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 568.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 22.75,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 5.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 45.5,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "2a58882e-4a7a-551d-a0ff-78056e88caf4",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-BEEF-1000",
+   "name": "Lean Beef Stir-fry Strips 1kg",
+   "brand": "Harbour Fresh",
+   "category": "Meat",
+   "ingredientId": "beef",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.7,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 19.0,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171205 with edible yield 0.7.",
+   "ingredients": [
+    "Beef chuck (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 568.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 22.75,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 5.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 45.5,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "9ccf780b-cb02-5f86-a2b1-9d912358db40",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-CHICK-400",
+   "name": "Chickpeas Cooked 400g",
+   "brand": "Value Basket",
+   "category": "Pantry",
+   "ingredientId": "chickpeas",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 1.2,
+   "packageGrams": 400,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173757.",
+   "ingredients": [
+    "Chickpeas",
+    "Water"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 686.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 8.86,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.59,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 27.4,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 7.6,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 7.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "c9ef5319-d50c-585e-a4d4-820edfe38958",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-CHICK-400",
+   "name": "Organic Chickpeas Cooked 400g",
+   "brand": "Green Leaf Organics",
+   "category": "Pantry",
+   "ingredientId": "chickpeas",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 2.2,
+   "packageGrams": 400,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173757.",
+   "ingredients": [
+    "Chickpeas",
+    "Water"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 686.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 8.86,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.59,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 27.4,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 7.6,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 7.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "1da12cf1-65ec-530f-ac64-cd73615dad74",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-EDA-400",
+   "name": "Frozen Shelled Edamame 400g",
+   "brand": "Harbour Fresh",
+   "category": "Frozen vegetables",
+   "ingredientId": "edamame",
+   "preparation": "RAW",
+   "cookedYieldFactor": 1.0,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 4.5,
+   "packageGrams": 400,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168411 with edible yield 1.0.",
+   "ingredients": [
+    "Shelled green soybeans (100%)"
+   ],
+   "allergens": [
+    "soy"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 506.3,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 11.9,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 5.2,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 8.91,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 5.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 6.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "44094f84-4fbd-505a-bac1-48dec1b40717",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-EDA-500",
+   "name": "Organic Shelled Edamame 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Frozen vegetables",
+   "ingredientId": "edamame",
+   "preparation": "RAW",
+   "cookedYieldFactor": 1.0,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 6.0,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168411 with edible yield 1.0.",
+   "ingredients": [
+    "Shelled green soybeans (100%)"
+   ],
+   "allergens": [
+    "soy"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 506.3,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 11.9,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 5.2,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 8.91,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 5.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 6.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "efec806a-05b0-54cf-95e0-44bab6ae7873",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-FETA-200",
+   "name": "Greek-style Feta 200g",
+   "brand": "Harbour Fresh",
+   "category": "Dairy",
+   "ingredientId": "feta",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 5.0,
+   "packageGrams": 200,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173420.",
+   "ingredients": [
+    "Pasteurised milk",
+    "Salt",
+    "Cultures",
+    "Enzyme"
+   ],
+   "allergens": [
+    "milk"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1108.8,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 14.2,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 21.5,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.88,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1140.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "b7b6b5b6-5459-550d-a156-e50cd9655e95",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-FETA-200",
+   "name": "Feta Cheese 200g",
+   "brand": "Value Basket",
+   "category": "Dairy",
+   "ingredientId": "feta",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 3.8,
+   "packageGrams": 200,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 173420.",
+   "ingredients": [
+    "Pasteurised milk",
+    "Salt",
+    "Cultures",
+    "Enzyme"
+   ],
+   "allergens": [
+    "milk"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1108.8,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 14.2,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 21.5,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.88,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1140.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "66c91961-998e-5f5f-b8bc-cd7d4696e753",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-BOK-300",
+   "name": "Baby Bok Choy Bunch 300g",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "bok_choy",
+   "preparation": "RAW",
+   "cookedYieldFactor": 1.0,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 2.5,
+   "packageGrams": 300,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170391 with edible yield 1.0.",
+   "ingredients": [
+    "Bok choy"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 50.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.56,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.16,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 1.78,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 34.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "2c666e5b-3b18-503c-81f1-022795926750",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-BOK-400",
+   "name": "Organic Bok Choy 400g",
+   "brand": "Green Leaf Organics",
+   "category": "Fresh vegetables",
+   "ingredientId": "bok_choy",
+   "preparation": "RAW",
+   "cookedYieldFactor": 1.0,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 3.8,
+   "packageGrams": 400,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170391 with edible yield 1.0.",
+   "ingredients": [
+    "Bok choy"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 50.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.56,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.16,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 1.78,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 34.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "7eb98234-0c5f-55bc-94ed-60b70f09bab0",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-SHII-150",
+   "name": "Fresh Shiitake Mushrooms 150g",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "mushrooms",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.6,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 4.5,
+   "packageGrams": 150,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168437 with edible yield 0.6.",
+   "ingredients": [
+    "Shiitake mushrooms"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 140.6,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.94,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.13,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 8.64,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.26,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2.4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "5776a824-e382-5e19-bd70-4680a32d05cc",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-SHII-200",
+   "name": "Organic Shiitake Mushrooms 200g",
+   "brand": "Green Leaf Organics",
+   "category": "Fresh vegetables",
+   "ingredientId": "mushrooms",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.6,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 6.9,
+   "packageGrams": 200,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168437 with edible yield 0.6.",
+   "ingredients": [
+    "Shiitake mushrooms"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 140.6,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.94,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.13,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 8.64,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.26,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2.4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "60ea65a3-81a8-5ad4-a511-c2a148139646",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-TOM-1000",
+   "name": "Round Tomatoes 1kg",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "tomato",
+   "preparation": "RAW",
+   "cookedYieldFactor": 1.0,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 4.9,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170457 with edible yield 1.0.",
+   "ingredients": [
+    "Tomatoes"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 75.3,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.88,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.2,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.89,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 5.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "f36121c0-67ab-51be-a005-6d700fed9d79",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-TOM-500",
+   "name": "Truss Tomatoes 500g",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "tomato",
+   "preparation": "RAW",
+   "cookedYieldFactor": 1.0,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.9,
+   "packageGrams": 500,
+   "promotion": "Fresh pick special",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170457 with edible yield 1.0.",
+   "ingredients": [
+    "Tomatoes"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 75.3,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.88,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.2,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.89,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 5.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "8d6f4c47-ab81-51ab-863b-7e57fe27900a",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-CUC-1",
+   "name": "Continental Cucumber Each (approx. 400g)",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "cucumber",
+   "preparation": "RAW",
+   "cookedYieldFactor": 1.0,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 1.9,
+   "packageGrams": 400,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168409 with edible yield 1.0.",
+   "ingredients": [
+    "Continental cucumber"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 62.8,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.65,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.11,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.63,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.5,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "142fee41-26b2-53a0-b87a-bcb7b3cd90a9",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-CUC-250",
+   "name": "Organic Lebanese Cucumbers 250g",
+   "brand": "Green Leaf Organics",
+   "category": "Fresh vegetables",
+   "ingredientId": "cucumber",
+   "preparation": "RAW",
+   "cookedYieldFactor": 1.0,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 2.9,
+   "packageGrams": 250,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 168409 with edible yield 1.0.",
+   "ingredients": [
+    "Continental cucumber"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 62.8,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.65,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.11,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 3.63,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.5,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 2.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "523ccf96-a927-5a29-9d55-bf4c678baaa6",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-CAP-500",
+   "name": "Red Capsicum 500g",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "capsicum",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.85,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 5.5,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170108 with edible yield 0.85.",
+   "ingredients": [
+    "Red capsicum"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 92.5,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.84,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.26,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 5.13,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.78,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 3.4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "0c5edec6-f6aa-52b4-ba30-4aac3bec5964",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-CAP-1000",
+   "name": "Red Capsicum 1kg",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "capsicum",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.85,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 8.9,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170108 with edible yield 0.85.",
+   "ingredients": [
+    "Red capsicum"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 92.5,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.84,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.26,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 5.13,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.78,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 3.4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "435f6d4b-e689-529e-8d42-5ea25b004fec",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-AVO-4",
+   "name": "Hass Avocados 4 Pack (approx. 800g)",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "avocado",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.7,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 6.0,
+   "packageGrams": 800,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171705 with edible yield 0.7.",
+   "ingredients": [
+    "Hass avocado"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 468.6,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.4,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 10.29,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 5.97,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 4.69,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 4.9,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "e71a69ea-1dd5-5222-a51e-9876228aa465",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-AVO-1",
+   "name": "Hass Avocado Each (approx. 200g)",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "avocado",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.7,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 1.8,
+   "packageGrams": 200,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171705 with edible yield 0.7.",
+   "ingredients": [
+    "Hass avocado"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 468.6,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.4,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 10.29,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 5.97,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 4.69,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 4.9,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "198e1719-0c43-52c7-a5d9-1508241dabb0",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-SOY-250",
+   "name": "Naturally Brewed Soy Sauce 250ml (290g)",
+   "brand": "Harbour Fresh",
+   "category": "Sauces & condiments",
+   "ingredientId": "soy_sauce",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.5,
+   "packageGrams": 290,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 174277.",
+   "ingredients": [
+    "Water",
+    "Soybeans",
+    "Wheat",
+    "Salt"
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 221.8,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 8.14,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.57,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 4.93,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.8,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 5490.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "d4d12b14-c5d4-5298-82ae-a6273aa3c34f",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-SOY-500",
+   "name": "Soy Sauce 500ml (580g)",
+   "brand": "Value Basket",
+   "category": "Sauces & condiments",
+   "ingredientId": "soy_sauce",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.9,
+   "packageGrams": 580,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 174277.",
+   "ingredients": [
+    "Water",
+    "Soybeans",
+    "Wheat",
+    "Salt"
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 221.8,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 8.14,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.57,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 4.93,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.8,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 5490.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "fc942538-ce79-5bd7-9669-59752edc71e4",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-SESO-150",
+   "name": "Pure Sesame Oil 150ml (138g)",
+   "brand": "Harbour Fresh",
+   "category": "Oils",
+   "ingredientId": "sesame_oil",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 4.2,
+   "packageGrams": 138,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171016.",
+   "ingredients": [
+    "Sesame oil (100%)"
+   ],
+   "allergens": [
+    "sesame"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 3698.7,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 100.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 0.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "3597042f-77b9-52fb-a025-0bec5a4f0949",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-SESO-250",
+   "name": "Organic Toasted Sesame Oil 250ml (230g)",
+   "brand": "Green Leaf Organics",
+   "category": "Oils",
+   "ingredientId": "sesame_oil",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 7.5,
+   "packageGrams": 230,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171016.",
+   "ingredients": [
+    "Sesame oil (100%)"
+   ],
+   "allergens": [
+    "sesame"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 3698.7,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 100.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 0.0,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "5e80f905-8188-516a-a8fd-758ac32d640c",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-GAR-250",
+   "name": "Garlic Bulbs 250g",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "garlic",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.87,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.5,
+   "packageGrams": 250,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169230 with edible yield 0.87.",
+   "ingredients": [
+    "Garlic"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 542.4,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 5.53,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.43,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 28.8,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.83,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 14.8,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "b5dbe160-6dbb-5ccf-b5e4-05264d565687",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-GAR-100",
+   "name": "Australian Garlic 100g",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "garlic",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.87,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 2.9,
+   "packageGrams": 100,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169230 with edible yield 0.87.",
+   "ingredients": [
+    "Garlic"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 542.4,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 5.53,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.43,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 28.8,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.83,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 14.8,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "44927e26-67a8-5144-864d-0d872e4f04cd",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-GIN-150",
+   "name": "Fresh Ginger 150g",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "ginger",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 2.4,
+   "packageGrams": 150,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169231 with edible yield 0.9.",
+   "ingredients": [
+    "Ginger root"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 301.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.64,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.68,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 16.02,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.8,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 11.7,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "03922af0-9e42-502f-8eb5-7f92cce59a71",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-GIN-100",
+   "name": "Organic Ginger 100g",
+   "brand": "Green Leaf Organics",
+   "category": "Fresh vegetables",
+   "ingredientId": "ginger",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 2.9,
+   "packageGrams": 100,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 169231 with edible yield 0.9.",
+   "ingredients": [
+    "Ginger root"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 301.2,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.64,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.68,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 16.02,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.8,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 11.7,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "ea57c57d-142f-5823-8ad7-c017277062ca",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-SPO-1",
+   "name": "Spring Onions Bunch (approx. 150g)",
+   "brand": "Value Basket",
+   "category": "Fresh vegetables",
+   "ingredientId": "spring_onion",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 1.5,
+   "packageGrams": 150,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170005 with edible yield 0.9.",
+   "ingredients": [
+    "Spring onions"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 120.5,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.65,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.17,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 6.61,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.34,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 14.4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "1b8b3c8d-2933-5bcb-b2cb-97ab75d639a0",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-SPO-1",
+   "name": "Spring Onions Bunch (approx. 120g)",
+   "brand": "Harbour Fresh",
+   "category": "Fresh vegetables",
+   "ingredientId": "spring_onion",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.9,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 2.0,
+   "packageGrams": 120,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 170005 with edible yield 0.9.",
+   "ingredients": [
+    "Spring onions"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 120.5,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.65,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.17,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 6.61,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.34,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 14.4,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "bae9cc0e-bd58-5ae5-af6f-5f841953336b",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-APPLE-LOLLY-200",
+   "name": "Apple Flavoured Lollies 200g",
+   "brand": "Value Basket",
+   "category": "Confectionery",
+   "ingredientId": "apple",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.5,
+   "packageGrams": 200,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Decoy product: named after a planned food but mostly another ingredient; the ingredient-list check must reject it.",
+   "ingredients": [
+    "Sugar",
+    "Glucose syrup",
+    "Apple juice concentrate (2%)",
+    "Gelatine",
+    "Natural apple flavour"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1420,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 4.1,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.2,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 79,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 35,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "9d5539df-3523-5454-a11e-97a7ba343fa0",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-RICEPUD-500",
+   "name": "Creamy Rice Pudding 4 x 125g",
+   "brand": "Harbour Fresh",
+   "category": "Desserts",
+   "ingredientId": "rice",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.9,
+   "packageGrams": 500,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Decoy product: named after a planned food but mostly another ingredient; the ingredient-list check must reject it.",
+   "ingredients": [
+    "Skim milk",
+    "Sugar",
+    "Rice (8%)",
+    "Cream",
+    "Thickener (1442)",
+    "Vanilla flavour"
+   ],
+   "allergens": [
+    "milk"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 440,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 3.4,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.6,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 17.5,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.2,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 45,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "0236c774-a33b-51d5-bc70-73703accc5b3",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-TOMSAUCE-540",
+   "name": "Tomato Sauce 500ml (540g)",
+   "brand": "Value Basket",
+   "category": "Sauces & condiments",
+   "ingredientId": "tomato",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 2.2,
+   "packageGrams": 540,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Decoy product: named after a planned food but mostly another ingredient; the ingredient-list check must reject it.",
+   "ingredients": [
+    "Tomatoes (68%)",
+    "Sugar",
+    "Vinegar",
+    "Salt",
+    "Onion",
+    "Spices"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 480,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 1.2,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 0.1,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 26,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 820,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "336ad4be-d25d-54e1-9278-35e55ce108df",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-CHKNOOD-425",
+   "name": "Chicken Flavour Instant Noodles 5 x 85g",
+   "brand": "Value Basket",
+   "category": "Pantry",
+   "ingredientId": "chicken",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 3.5,
+   "packageGrams": 425,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Decoy product: named after a planned food but mostly another ingredient; the ingredient-list check must reject it.",
+   "ingredients": [
+    "Noodles (wheat flour, palm oil, salt)",
+    "Flavour sachet (salt, sugar, flavour enhancer (621), chicken extract (1%))"
+   ],
+   "allergens": [
+    "gluten"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1900,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 9.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 19.5,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 60,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 2.4,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 1850,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "BASIC"
+  }
+ },
+ {
+  "productId": "a70958be-d2f3-5b5b-8a28-7ea09846ef33",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-BANCHIP-200",
+   "name": "Banana Chips 200g",
+   "brand": "Green Leaf Organics",
+   "category": "Snacks",
+   "ingredientId": "banana",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 4.5,
+   "packageGrams": 200,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Decoy product: named after a planned food but mostly another ingredient; the ingredient-list check must reject it.",
+   "ingredients": [
+    "Banana (70%)",
+    "Coconut oil",
+    "Sugar"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "vegan",
+    "vegetarian",
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 2160,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 2.3,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 33.6,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 58,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 7.7,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 6,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "PREMIUM"
+  }
+ },
+ {
+  "productId": "ac39f803-af05-5189-a72e-ec38d4a23f80",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "FM-SALMCRACK-100",
+   "name": "Salmon Flavoured Rice Crackers 100g",
+   "brand": "Harbour Fresh",
+   "category": "Snacks",
+   "ingredientId": "salmon",
+   "preparation": "READY_TO_EAT",
+   "cookedYieldFactor": null,
+   "store": "FreshMart Central",
+   "currency": "AUD",
+   "price": 3.0,
+   "packageGrams": 100,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Decoy product: named after a planned food but mostly another ingredient; the ingredient-list check must reject it.",
+   "ingredients": [
+    "Rice (85%)",
+    "Vegetable oil",
+    "Salmon powder (3%)",
+    "Salt",
+    "Sugar"
+   ],
+   "allergens": [
+    "fish"
+   ],
+   "mayContain": [],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 1700,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 7.0,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 5.0,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 82,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 1.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 540,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "5a3d98fb-1576-5eba-877e-6512c0dd1c00",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "VB-CHK-1000",
+   "name": "Chicken Breast Fillets Bulk 1kg",
+   "brand": "Value Basket",
+   "category": "Meat & poultry",
+   "ingredientId": "chicken",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.73,
+   "store": "ValueBasket Express",
+   "currency": "AUD",
+   "price": 9.9,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171477 with edible yield 0.73. The supplier label has no allergen or may-contain statement.",
+   "ingredients": [
+    "Chicken breast (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": false,
+   "per100g": {
+    "1008": {
+     "amount": 489,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 22.6,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 53,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ },
+ {
+  "productId": "5e57836d-2b9f-5fe1-8a0f-1192f08ee9fc",
+  "facts": {
+   "expectedVersion": 0,
+   "sourceId": "nutrimarket-synthetic-test-catalogue",
+   "sku": "GL-CHK-STRIP-500",
+   "name": "Chicken Breast Strips 500g",
+   "brand": "Green Leaf Organics",
+   "category": "Meat & poultry",
+   "ingredientId": "chicken",
+   "preparation": "RAW",
+   "cookedYieldFactor": 0.73,
+   "store": "GreenLeaf Grocer",
+   "currency": "AUD",
+   "price": 5.2,
+   "packageGrams": 1000,
+   "promotion": "",
+   "availability": "IN_STOCK",
+   "observedAt": "1970-01-01T00:00:00Z",
+   "sourceReference": "Synthetic test fixture, not real retailer data. Nutrition per 100 g as sold derived from USDA FoodData Central fdcId 171477 with edible yield 0.73. Label: packed on a line that also handles satay and sesame products; may contain sesame and peanut.",
+   "ingredients": [
+    "Chicken breast (100%)"
+   ],
+   "allergens": [],
+   "mayContain": [
+    "sesame",
+    "peanut"
+   ],
+   "dietaryClaims": [
+    "gluten free"
+   ],
+   "ingredientsComplete": true,
+   "allergensComplete": true,
+   "per100g": {
+    "1008": {
+     "amount": 489,
+     "unit": "kJ"
+    },
+    "1003": {
+     "amount": 22.6,
+     "unit": "g"
+    },
+    "1004": {
+     "amount": 2.7,
+     "unit": "g"
+    },
+    "1005": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1079": {
+     "amount": 0.0,
+     "unit": "g"
+    },
+    "1093": {
+     "amount": 53,
+     "unit": "mg"
+    }
+   },
+   "enabled": true,
+   "evidenceConfirmed": true,
+   "qualityTier": "STANDARD"
+  }
+ }
+]

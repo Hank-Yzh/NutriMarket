@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#234e42"><title>Review your basket - NutriMarket</title><link rel="stylesheet" href="/style.css"><script type="module" src="/basket.js"></script></head><body class="app-page"><aside class="sidebar"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M24 6C12 5 5 11 8 21c10 4 17-3 16-15Z" fill="currentColor"/><path d="m10 23 11-13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span><span>NutriMarket<span class="brand-sub">Daily meals · A clearer picture</span></span></a><p class="nav-label">MY NUTRITION SPACE</p><nav aria-label="Main navigation"><a class="nav-item" href="/"><span aria-hidden="true">▦</span> Meal records</a><a class="nav-item "  href="/upload.html"><span aria-hidden="true">＋</span> Upload a meal</a><a class="nav-item" href="/health.html"><span aria-hidden="true">♡</span> Health assessment</a><a class="nav-item" href="/planning.html"><span aria-hidden="true">▤</span> Meal planning</a><a class="nav-item" href="/market.html"><span aria-hidden="true">⌑</span> Market matching</a><a class="nav-item active" aria-current="page" href="/procurement.html"><span aria-hidden="true">▱</span> Shopping baskets</a><a class="nav-item" href="/orders.html"><span aria-hidden="true">✓</span> Orders</a><a class="nav-item" href="/pantry.html"><span aria-hidden="true">▣</span> Pantry</a></nav><div class="sidebar-note"><span class="small-leaf" aria-hidden="true">✳</span><strong>Eat well. Keep a record.</strong><p>Start with a daily meal.<br>Understand your eating habits.</p></div><div class="account"><a class="account-link" href="/profile.html"><span aria-hidden="true">◎</span> Health profile</a><span class="avatar" aria-hidden="true">N</span><span id="username">Loading</span><button id="logout" class="text-button" type="button">Sign out</button></div></aside><div class="workspace"><header class="page-header"><div><span class="eyebrow">PROCUREMENT · SIMULATED PARTNER STORES</span><h1>Review your basket<span class="heading-dot">.</span></h1><p>Check every product and its evidence, adjust your preferences, then confirm and place the order.</p></div><a href="/procurement.html">Basket overview →</a></header><p id="message" role="status" aria-live="polite">Loading...</p><main>
+<div id="content" hidden>
+<section class="panel">
+<div class="section-heading"><h2 id="state"></h2><button id="reload" type="button">Reload</button></div>
+<p id="meta"></p>
+<p id="summary" class="notice"></p>
+<p id="default-choice" class="notice default-choice" hidden></p>
+<p id="replan-status" class="notice replan-status" hidden></p>
+<p id="learned" class="field-help" hidden></p>
+<ul id="issues" class="basket-issues" aria-label="Issues to resolve" aria-live="polite"></ul>
+<div class="health-toolbar"><a id="market-link">Market evidence →</a><a id="plan-link">Meal plan →</a><a id="order-link" hidden>View order →</a></div>
+</section>
+<details class="panel locked-constraints" id="constraints-panel">
+<summary><h2>Locked health constraints<span class="constraints-disclosure"><span class="chip" data-tone="locked">🔒 Locked</span><span class="disclosure-action"><span class="when-collapsed">View details</span><span class="when-expanded">Hide details</span><span class="disclosure-chevron" aria-hidden="true">⌄</span></span></span></h2></summary>
+<p class="field-help">From your cleared assessment, published plan and expert decisions. Basket controls cannot change them; update your health profile instead.</p>
+<div id="constraints" class="locked-grid"></div>
+</details>
+<div class="basket-layout">
+<section class="panel" id="items-panel" role="region" aria-labelledby="items-heading" tabindex="0">
+<div class="section-heading"><h2 id="items-heading">Basket items</h2>
+<div class="segmented" role="group" aria-label="Basket view"><button id="view-products" type="button" aria-pressed="true">By product</button><button id="view-meals" type="button" aria-pressed="false">By meal</button></div></div>
+<p id="omitted-note" class="notice" hidden></p><details><summary>How this basket was calculated</summary><p id="explanation" class="field-help"></p></details>
+<div id="lines"></div>
+<div id="meals" class="table-scroll" hidden></div>
+</section>
+<div class="basket-side" role="region" aria-label="Basket budget and actions" tabindex="0">
+<section class="panel" id="preferences-panel"><h2>Your choices</h2><div id="active-choices"></div><button id="edit-basket" class="primary full-width" type="button">Edit basket &amp; compare options</button><p class="field-help">Edit products, budget and fulfilment together. Changes apply only when you save.</p></section>
+<section class="panel" id="summary-panel">
+<h2>Budget summary</h2>
+<dl id="budget-summary" class="summary-rows"></dl>
+<div class="budget-bar" aria-hidden="true"><span id="budget-fill"></span></div>
+<p id="budget-state" class="field-help"></p>
+<p id="store-note" class="notice store-note"></p>
+<div id="selected-store-summary"></div><details><summary>Selection notes</summary><p id="decisions" class="field-help"></p></details>
+<div id="submit-panel">
+<button id="checkout" class="text-button full-width" type="button">Refresh prices and stock only</button>
+<p class="field-help">Prices, stock and every health check are refreshed first. You confirm again only if something material changed. Orders go to simulated partner stores; no payment is taken.</p>
+</div>
+</section>
+</div>
+</div>
+<div id="order-bar" class="order-bar" role="region" aria-label="Place order" hidden><div class="order-bar-total"><span>Basket total</span><strong id="order-total"></strong><small id="order-note"></small></div><button id="submit" class="primary" type="button">Confirm and place order <span aria-hidden="true">→</span></button></div>
+<section class="panel" id="recovery-panel">
+<h2>Resolve an unfulfilled basket</h2>
+<p>Adjust your preferences or refresh incomplete evidence first. Replanning is available only when current market evidence shows that a meal has no eligible product. When the planner's replan limit is reached the plan is escalated to a Human Expert.</p>
+<label class="checkbox-label"><input id="ai-consent" type="checkbox"> I consent to AI replanning of affected meals.</label>
+<div class="health-toolbar"><button id="replan" type="button">Request meal replanning</button><button id="review" type="button">Request expert review</button></div>
+</section>
+<details class="panel"><summary>Basket history</summary><div id="history" class="table-scroll"></div></details>
+</div>
+<dialog id="basket-editor" class="basket-editor" aria-labelledby="editor-title">
+<form id="preferences-form">
+<div class="section-heading"><h2 id="editor-title">Edit your basket</h2><button id="close-editor" type="button" aria-label="Close basket editor">Close</button></div>
+<p class="field-help">Two levels, saved together: your basket settings rebuild the whole basket first, then your product choices apply to the rebuilt basket.</p>
+
+<fieldset id="preferences-fields"><section class="edit-layer" aria-labelledby="layer-basket"><div class="layer-heading"><span class="layer-step" aria-hidden="true">1</span><div><h3 id="layer-basket">Basket settings</h3><p class="field-help">Budget, price-quality preference and fulfilment apply to the whole basket. Changing any of them rebuilds every item. <span class="chip" data-tone="locked">🔒 Health and allergy constraints stay locked</span></p></div></div>
+<div class="basket-settings">
+<label>Budget<span class="budget-input"><input id="budget" type="number" min="0" max="1000000" step="0.01" required><span id="currency-label"></span></span>
+<input id="budget-range" type="range" min="0" max="300" step="1" aria-label="Budget slider"></label>
+<input id="currency" type="hidden">
+<fieldset class="choice-set"><legend>Price-quality preference</legend>
+<label class="choice"><input type="radio" name="preference" value="ECONOMY"><span><strong>Economy</strong><small>Lowest total for the same meal quantities.</small></span></label>
+<label class="choice"><input type="radio" name="preference" value="BALANCED"><span><strong>Balanced</strong><small>Higher product ranges, within a limited extra cost.</small></span></label>
+<label class="choice"><input type="radio" name="preference" value="PREMIUM"><span><strong>Premium</strong><small>Higher product ranges within your budget; no extra meal portions.</small></span></label>
+</fieldset>
+<fieldset class="choice-set"><legend>Fulfilment mode</legend>
+<div class="segmented"><label><input type="radio" name="fulfilment" value="DELIVERY"> Delivery · one supermarket</label><label><input type="radio" name="fulfilment" value="PICKUP"> Pick-up · compare across stores</label></div>
+<fieldset id="delivery-address" class="delivery-address" hidden disabled><legend>Delivery address</legend><p class="field-help">Home delivery goes here. It is saved for later orders and is never sent to AI services or health experts.</p><div id="address-fields"></div></fieldset>
+</fieldset>
+<details class="editor-advanced"><summary>More preferences</summary><fieldset class="choice-set"><legend>Exclusions</legend>
+<div class="exclusion-entry"><select id="exclusion-type" aria-label="Exclusion type"><option value="BRAND">Brand</option><option value="SKU">SKU</option></select>
+<input id="exclusion-value" list="exclusion-options" maxlength="100" placeholder="Brand or SKU" aria-label="Brand or SKU to exclude"><button id="add-exclusion" type="button">Add</button></div>
+<datalist id="exclusion-options"></datalist>
+<p id="exclusion-error" class="field-error" role="alert" hidden></p>
+<div id="exclusions" class="tag-list"></div>
+</fieldset>
+<details><summary>Saved stores</summary><div id="stores" class="choice-grid"></div><p class="field-help">Saved stores break ties between equal-cost Economy options.</p></details>
+<label class="checkbox-label"><input id="auto-replan" type="checkbox"> Automatically request AI meal replanning (sends planning constraints to Qwen) when current evidence shows a meal cannot be bought.</label>
+</details></div>
+<section class="basket-comparison"><div class="section-heading"><h3>Compare your options</h3><button id="compare-options" type="button">Update comparison</button></div>
+<p class="field-help">Every option covers the same remaining meal quantities. Economy spends the least; it does not add food to use up your budget. Product ranges come from catalogue labels.</p>
+<p id="comparison-message" class="field-help" aria-live="polite"></p><div id="basket-options"></div><div id="option-details"></div></section>
+</section>
+<section class="edit-layer" aria-labelledby="layer-items"><div class="layer-heading"><span class="layer-step" aria-hidden="true">2</span><div><h3 id="layer-items">Products in this basket</h3><p class="field-help">Keep: keep this product. Don't like this product: buy another eligible product for the same food; later baskets avoid it too. Don't like this food: your meal planner replaces the meals that use it, and later plans leave it out. Don't need: skip that ingredient this time.</p></div></div>
+<div id="edit-products"></div>
+<label class="checkbox-label" id="food-consent-box" hidden><input id="food-consent" type="checkbox"> I agree to send my planning constraints and preferences to Qwen so the meals that use these foods can be replaced.</label>
+</section>
+<div class="dialog-actions editor-actions"><p id="editor-message" role="status" aria-live="polite"></p><button id="cancel-editor" type="button">Cancel</button><button class="primary" type="submit">Save and recalculate</button></div>
+</fieldset></form></dialog>
+<div id="progress" class="overlay" role="alertdialog" aria-live="assertive" aria-label="Revalidating basket" hidden><div class="overlay-card"><span class="spinner" aria-hidden="true"></span><p id="progress-text">Refreshing prices and stock and re-checking health constraints…</p></div></div>
+<dialog id="changes-dialog" class="change-dialog" aria-labelledby="changes-title">
+<h2 id="changes-title">Confirm the refreshed basket</h2>
+<p id="changes-intro"></p>
+<ul id="changes" class="change-list"></ul>
+<p id="changes-total" class="field-help"></p>
+<div class="dialog-actions"><button id="decline" type="button">Cancel</button><button id="confirm" class="primary" type="button">Confirm and submit</button></div>
+</dialog>
+</main><footer class="page-footer">Orders are sent to simulated partner stores only. No payment, real supermarket submission or stock reservation takes place.</footer></div></body></html>

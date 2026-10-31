@@ -1,0 +1,83 @@
+### IntelliJ HTTP Client
+### Configure MySQL and start the application, then register/sign in using auth-api.http. Set photoPath to your image path.
+@baseUrl = http://127.0.0.1:8080
+### Successful login in auth-api.http saves accessToken as a global variable.
+@recordId = 3ec3b7e4-bba6-481e-8f21-e6c6dfeb1001
+@photoPath = /absolute/path/to/meal.jpg
+
+### 1. Upload and analyse (use a new recordId and actual mealTime for each new meal)
+POST {{baseUrl}}/api/v1/dietary-records
+Authorization: Bearer {{accessToken}}
+Content-Type: multipart/form-data; boundary=MealBoundary
+
+--MealBoundary
+Content-Disposition: form-data; name="recordId"
+
+{{recordId}}
+--MealBoundary
+Content-Disposition: form-data; name="profileVersion"
+
+1
+--MealBoundary
+Content-Disposition: form-data; name="mealTime"
+
+2026-10-10T08:00:00Z
+--MealBoundary
+Content-Disposition: form-data; name="photoProcessingConsent"
+
+true
+--MealBoundary
+Content-Disposition: form-data; name="photo"; filename="meal.jpg"
+Content-Type: image/jpeg
+
+< {{photoPath}}
+--MealBoundary--
+
+### 2. Current member records
+GET {{baseUrl}}/api/v1/dietary-records?page=1&size=20
+Authorization: Bearer {{accessToken}}
+
+### 3. Filter by status
+GET {{baseUrl}}/api/v1/dietary-records?page=1&size=20&status=PENDING_MEMBER_CONFIRMATION
+Authorization: Bearer {{accessToken}}
+
+### 4. Record details
+GET {{baseUrl}}/api/v1/dietary-records/{{recordId}}
+Authorization: Bearer {{accessToken}}
+
+### 5. Replace the complete food list (pending confirmation or DEFERRED with recognition only)
+PUT {{baseUrl}}/api/v1/dietary-records/{{recordId}}/foods
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "foods": [
+    {
+      "name": "Cooked rice",
+      "searchTerm": "Rice, white, long-grain, regular, enriched, cooked",
+      "portionGrams": 180,
+      "confidence": 0.7,
+      "fdcId": null
+    }
+  ]
+}
+
+### 6. Confirm (validated records cannot be edited or abandoned)
+POST {{baseUrl}}/api/v1/dietary-records/{{recordId}}/confirm
+Authorization: Bearer {{accessToken}}
+
+### 7. Abandon (alternative to confirmation, subject to current state)
+POST {{baseUrl}}/api/v1/dietary-records/{{recordId}}/abandon
+Authorization: Bearer {{accessToken}}
+
+### 8. Retry after a service failure (DEFERRED only)
+POST {{baseUrl}}/api/v1/dietary-records/{{recordId}}/retry
+Authorization: Bearer {{accessToken}}
+
+### 9. Validated record for Agent 2
+GET {{baseUrl}}/api/v1/dietary-records/{{recordId}}/validated
+Authorization: Bearer {{accessToken}}
+
+### 10. Downstream delivery status
+GET {{baseUrl}}/api/v1/dietary-records/{{recordId}}/delivery
+Authorization: Bearer {{accessToken}}

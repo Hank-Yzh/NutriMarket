@@ -1,0 +1,1292 @@
+{
+ "about": "Deterministic demo scenarios. Usernames only select input data: profiles, a pre-validated meal plan and (in test-catalogue.json) market evidence. Every outcome is produced by the real Agent 2-5 code and checked by DemoScenarios.verify.",
+ "profile": {
+  "timezone": "Australia/Sydney",
+  "goals": "Improve blood glucose control and keep a steady weight.",
+  "conditions": [
+   "Type 2 diabetes"
+  ],
+  "preferences": "Prefers simple home-cooked meals.",
+  "mealStyles": [
+   "Asian",
+   "Simple Western"
+  ],
+  "targetSource": "Demo targets for the presentation only; not clinical advice.",
+  "targets": {
+   "1008": {
+    "minimum": 1800,
+    "maximum": 2200,
+    "unit": "kcal"
+   },
+   "1003": {
+    "minimum": 70,
+    "maximum": 130,
+    "unit": "g"
+   },
+   "1004": {
+    "minimum": 50,
+    "maximum": 80,
+    "unit": "g"
+   },
+   "1005": {
+    "minimum": 200,
+    "maximum": 300,
+    "unit": "g"
+   }
+  }
+ },
+ "assessmentWeek": "2026-10-05",
+ "plans": {
+  "chicken-week": {
+   "description": "Shared base week with chicken on four dinners. Soy-, sesame- and peanut-free.",
+   "meals": [
+    {
+     "day": 0,
+     "slot": "BREAKFAST",
+     "dish": "Banana oat porridge with yogurt",
+     "ingredients": [
+      {
+       "ingredientId": "oats",
+       "grams": 450
+      },
+      {
+       "ingredientId": "yogurt",
+       "grams": 225
+      },
+      {
+       "ingredientId": "banana",
+       "grams": 60
+      }
+     ]
+    },
+    {
+     "day": 0,
+     "slot": "LUNCH",
+     "dish": "Lentil and quinoa salad with cucumber, tomato and feta",
+     "ingredients": [
+      {
+       "ingredientId": "lentils",
+       "grams": 90
+      },
+      {
+       "ingredientId": "quinoa",
+       "grams": 225
+      },
+      {
+       "ingredientId": "cucumber",
+       "grams": 48
+      },
+      {
+       "ingredientId": "tomato",
+       "grams": 116
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 45
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 0,
+     "slot": "DINNER",
+     "dish": "Ginger chicken with steamed rice and bok choy",
+     "ingredients": [
+      {
+       "ingredientId": "chicken",
+       "grams": 140
+      },
+      {
+       "ingredientId": "white_rice",
+       "grams": 326
+      },
+      {
+       "ingredientId": "bok_choy",
+       "grams": 90
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 4
+      },
+      {
+       "ingredientId": "ginger",
+       "grams": 9
+      },
+      {
+       "ingredientId": "spring_onion",
+       "grams": 9
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 1,
+     "slot": "BREAKFAST",
+     "dish": "Spinach and feta omelette with wholemeal toast",
+     "ingredients": [
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 90
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 30
+      },
+      {
+       "ingredientId": "wholemeal_bread",
+       "grams": 120
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 3
+      }
+     ]
+    },
+    {
+     "day": 1,
+     "slot": "LUNCH",
+     "dish": "Chickpea, capsicum and spinach brown rice bowl",
+     "ingredients": [
+      {
+       "ingredientId": "chickpeas",
+       "grams": 225
+      },
+      {
+       "ingredientId": "rice",
+       "grams": 120
+      },
+      {
+       "ingredientId": "capsicum",
+       "grams": 121
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 75
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 1,
+     "slot": "DINNER",
+     "dish": "Egg fried rice with carrot and spring onion",
+     "ingredients": [
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "white_rice",
+       "grams": 305
+      },
+      {
+       "ingredientId": "carrot",
+       "grams": 48
+      },
+      {
+       "ingredientId": "spring_onion",
+       "grams": 30
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 2,
+     "slot": "BREAKFAST",
+     "dish": "Apple oat porridge with yogurt",
+     "ingredients": [
+      {
+       "ingredientId": "oats",
+       "grams": 450
+      },
+      {
+       "ingredientId": "apple",
+       "grams": 175
+      },
+      {
+       "ingredientId": "yogurt",
+       "grams": 225
+      }
+     ]
+    },
+    {
+     "day": 2,
+     "slot": "LUNCH",
+     "dish": "Garlic mushroom and spinach wholemeal pasta with feta",
+     "ingredients": [
+      {
+       "ingredientId": "pasta",
+       "grams": 300
+      },
+      {
+       "ingredientId": "mushrooms",
+       "grams": 60
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 36
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 3
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 45
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 2,
+     "slot": "DINNER",
+     "dish": "Roast chicken with sweet potato and broccoli",
+     "ingredients": [
+      {
+       "ingredientId": "chicken",
+       "grams": 155
+      },
+      {
+       "ingredientId": "sweet_potato",
+       "grams": 265
+      },
+      {
+       "ingredientId": "broccoli",
+       "grams": 90
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 3
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 3,
+     "slot": "BREAKFAST",
+     "dish": "Avocado and tomato toast with boiled egg",
+     "ingredients": [
+      {
+       "ingredientId": "wholemeal_bread",
+       "grams": 120
+      },
+      {
+       "ingredientId": "avocado",
+       "grams": 57
+      },
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "tomato",
+       "grams": 120
+      }
+     ]
+    },
+    {
+     "day": 3,
+     "slot": "LUNCH",
+     "dish": "Roasted sweet potato and chickpea salad with avocado",
+     "ingredients": [
+      {
+       "ingredientId": "sweet_potato",
+       "grams": 300
+      },
+      {
+       "ingredientId": "chickpeas",
+       "grams": 180
+      },
+      {
+       "ingredientId": "cucumber",
+       "grams": 120
+      },
+      {
+       "ingredientId": "tomato",
+       "grams": 120
+      },
+      {
+       "ingredientId": "avocado",
+       "grams": 47
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 3
+      }
+     ]
+    },
+    {
+     "day": 3,
+     "slot": "DINNER",
+     "dish": "Rice noodle stir-fry with egg, capsicum and mushrooms",
+     "ingredients": [
+      {
+       "ingredientId": "rice_noodles",
+       "grams": 238
+      },
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "capsicum",
+       "grams": 120
+      },
+      {
+       "ingredientId": "mushrooms",
+       "grams": 48
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 8
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 4,
+     "slot": "BREAKFAST",
+     "dish": "Banana oat porridge with yogurt",
+     "ingredients": [
+      {
+       "ingredientId": "oats",
+       "grams": 450
+      },
+      {
+       "ingredientId": "yogurt",
+       "grams": 225
+      },
+      {
+       "ingredientId": "banana",
+       "grams": 60
+      }
+     ]
+    },
+    {
+     "day": 4,
+     "slot": "LUNCH",
+     "dish": "Lentil and quinoa salad with cucumber, tomato and feta",
+     "ingredients": [
+      {
+       "ingredientId": "lentils",
+       "grams": 90
+      },
+      {
+       "ingredientId": "quinoa",
+       "grams": 225
+      },
+      {
+       "ingredientId": "cucumber",
+       "grams": 48
+      },
+      {
+       "ingredientId": "tomato",
+       "grams": 116
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 45
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 4,
+     "slot": "DINNER",
+     "dish": "Ginger chicken with steamed rice and bok choy",
+     "ingredients": [
+      {
+       "ingredientId": "chicken",
+       "grams": 140
+      },
+      {
+       "ingredientId": "white_rice",
+       "grams": 326
+      },
+      {
+       "ingredientId": "bok_choy",
+       "grams": 90
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 4
+      },
+      {
+       "ingredientId": "ginger",
+       "grams": 9
+      },
+      {
+       "ingredientId": "spring_onion",
+       "grams": 9
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 5,
+     "slot": "BREAKFAST",
+     "dish": "Spinach and feta omelette with wholemeal toast",
+     "ingredients": [
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 90
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 30
+      },
+      {
+       "ingredientId": "wholemeal_bread",
+       "grams": 120
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 3
+      }
+     ]
+    },
+    {
+     "day": 5,
+     "slot": "LUNCH",
+     "dish": "Garlic mushroom and spinach wholemeal pasta with feta",
+     "ingredients": [
+      {
+       "ingredientId": "pasta",
+       "grams": 282
+      },
+      {
+       "ingredientId": "mushrooms",
+       "grams": 60
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 90
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 6
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 31
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 5,
+     "slot": "DINNER",
+     "dish": "Roast potato, chickpea and broccoli traybake with feta",
+     "ingredients": [
+      {
+       "ingredientId": "potato",
+       "grams": 180
+      },
+      {
+       "ingredientId": "chickpeas",
+       "grams": 180
+      },
+      {
+       "ingredientId": "broccoli",
+       "grams": 225
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 39
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 6,
+     "slot": "BREAKFAST",
+     "dish": "Apple oat porridge with yogurt",
+     "ingredients": [
+      {
+       "ingredientId": "oats",
+       "grams": 450
+      },
+      {
+       "ingredientId": "apple",
+       "grams": 72
+      },
+      {
+       "ingredientId": "yogurt",
+       "grams": 225
+      }
+     ]
+    },
+    {
+     "day": 6,
+     "slot": "LUNCH",
+     "dish": "Chickpea, capsicum and spinach brown rice bowl",
+     "ingredients": [
+      {
+       "ingredientId": "chickpeas",
+       "grams": 225
+      },
+      {
+       "ingredientId": "rice",
+       "grams": 300
+      },
+      {
+       "ingredientId": "capsicum",
+       "grams": 60
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 30
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 6,
+     "slot": "DINNER",
+     "dish": "Roast chicken with sweet potato and broccoli",
+     "ingredients": [
+      {
+       "ingredientId": "chicken",
+       "grams": 162
+      },
+      {
+       "ingredientId": "sweet_potato",
+       "grams": 150
+      },
+      {
+       "ingredientId": "broccoli",
+       "grams": 90
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 3
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    }
+   ]
+  },
+  "seafood-week": {
+   "description": "The same breakfasts, lunches and vegetarian dinners, with prawns (days 1 and 5) and salmon (days 3 and 7) on the other four dinners.",
+   "meals": [
+    {
+     "day": 0,
+     "slot": "BREAKFAST",
+     "dish": "Banana oat porridge with yogurt",
+     "ingredients": [
+      {
+       "ingredientId": "oats",
+       "grams": 450
+      },
+      {
+       "ingredientId": "yogurt",
+       "grams": 225
+      },
+      {
+       "ingredientId": "banana",
+       "grams": 60
+      }
+     ]
+    },
+    {
+     "day": 0,
+     "slot": "LUNCH",
+     "dish": "Lentil and quinoa salad with cucumber, tomato and feta",
+     "ingredients": [
+      {
+       "ingredientId": "lentils",
+       "grams": 90
+      },
+      {
+       "ingredientId": "quinoa",
+       "grams": 225
+      },
+      {
+       "ingredientId": "cucumber",
+       "grams": 48
+      },
+      {
+       "ingredientId": "tomato",
+       "grams": 116
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 45
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 0,
+     "slot": "DINNER",
+     "dish": "Garlic prawns with steamed rice and bok choy",
+     "ingredients": [
+      {
+       "ingredientId": "prawns",
+       "grams": 200
+      },
+      {
+       "ingredientId": "white_rice",
+       "grams": 330
+      },
+      {
+       "ingredientId": "bok_choy",
+       "grams": 90
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 7
+      },
+      {
+       "ingredientId": "ginger",
+       "grams": 9
+      },
+      {
+       "ingredientId": "spring_onion",
+       "grams": 12
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 1,
+     "slot": "BREAKFAST",
+     "dish": "Spinach and feta omelette with wholemeal toast",
+     "ingredients": [
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 90
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 30
+      },
+      {
+       "ingredientId": "wholemeal_bread",
+       "grams": 120
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 3
+      }
+     ]
+    },
+    {
+     "day": 1,
+     "slot": "LUNCH",
+     "dish": "Chickpea, capsicum and spinach brown rice bowl",
+     "ingredients": [
+      {
+       "ingredientId": "chickpeas",
+       "grams": 225
+      },
+      {
+       "ingredientId": "rice",
+       "grams": 120
+      },
+      {
+       "ingredientId": "capsicum",
+       "grams": 121
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 75
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 1,
+     "slot": "DINNER",
+     "dish": "Egg fried rice with carrot and spring onion",
+     "ingredients": [
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "white_rice",
+       "grams": 305
+      },
+      {
+       "ingredientId": "carrot",
+       "grams": 48
+      },
+      {
+       "ingredientId": "spring_onion",
+       "grams": 30
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 2,
+     "slot": "BREAKFAST",
+     "dish": "Apple oat porridge with yogurt",
+     "ingredients": [
+      {
+       "ingredientId": "oats",
+       "grams": 450
+      },
+      {
+       "ingredientId": "apple",
+       "grams": 175
+      },
+      {
+       "ingredientId": "yogurt",
+       "grams": 225
+      }
+     ]
+    },
+    {
+     "day": 2,
+     "slot": "LUNCH",
+     "dish": "Garlic mushroom and spinach wholemeal pasta with feta",
+     "ingredients": [
+      {
+       "ingredientId": "pasta",
+       "grams": 300
+      },
+      {
+       "ingredientId": "mushrooms",
+       "grams": 60
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 36
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 3
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 45
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 2,
+     "slot": "DINNER",
+     "dish": "Baked salmon with sweet potato and broccoli",
+     "ingredients": [
+      {
+       "ingredientId": "salmon",
+       "grams": 120
+      },
+      {
+       "ingredientId": "sweet_potato",
+       "grams": 246
+      },
+      {
+       "ingredientId": "broccoli",
+       "grams": 225
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 8
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 11
+      }
+     ]
+    },
+    {
+     "day": 3,
+     "slot": "BREAKFAST",
+     "dish": "Avocado and tomato toast with boiled egg",
+     "ingredients": [
+      {
+       "ingredientId": "wholemeal_bread",
+       "grams": 120
+      },
+      {
+       "ingredientId": "avocado",
+       "grams": 57
+      },
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "tomato",
+       "grams": 120
+      }
+     ]
+    },
+    {
+     "day": 3,
+     "slot": "LUNCH",
+     "dish": "Roasted sweet potato and chickpea salad with avocado",
+     "ingredients": [
+      {
+       "ingredientId": "sweet_potato",
+       "grams": 300
+      },
+      {
+       "ingredientId": "chickpeas",
+       "grams": 180
+      },
+      {
+       "ingredientId": "cucumber",
+       "grams": 120
+      },
+      {
+       "ingredientId": "tomato",
+       "grams": 120
+      },
+      {
+       "ingredientId": "avocado",
+       "grams": 47
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 3
+      }
+     ]
+    },
+    {
+     "day": 3,
+     "slot": "DINNER",
+     "dish": "Rice noodle stir-fry with egg, capsicum and mushrooms",
+     "ingredients": [
+      {
+       "ingredientId": "rice_noodles",
+       "grams": 238
+      },
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "capsicum",
+       "grams": 120
+      },
+      {
+       "ingredientId": "mushrooms",
+       "grams": 48
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 8
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 4,
+     "slot": "BREAKFAST",
+     "dish": "Banana oat porridge with yogurt",
+     "ingredients": [
+      {
+       "ingredientId": "oats",
+       "grams": 450
+      },
+      {
+       "ingredientId": "yogurt",
+       "grams": 225
+      },
+      {
+       "ingredientId": "banana",
+       "grams": 60
+      }
+     ]
+    },
+    {
+     "day": 4,
+     "slot": "LUNCH",
+     "dish": "Lentil and quinoa salad with cucumber, tomato and feta",
+     "ingredients": [
+      {
+       "ingredientId": "lentils",
+       "grams": 90
+      },
+      {
+       "ingredientId": "quinoa",
+       "grams": 225
+      },
+      {
+       "ingredientId": "cucumber",
+       "grams": 48
+      },
+      {
+       "ingredientId": "tomato",
+       "grams": 116
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 45
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 4,
+     "slot": "DINNER",
+     "dish": "Garlic prawns with steamed rice and bok choy",
+     "ingredients": [
+      {
+       "ingredientId": "prawns",
+       "grams": 200
+      },
+      {
+       "ingredientId": "white_rice",
+       "grams": 330
+      },
+      {
+       "ingredientId": "bok_choy",
+       "grams": 90
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 7
+      },
+      {
+       "ingredientId": "ginger",
+       "grams": 9
+      },
+      {
+       "ingredientId": "spring_onion",
+       "grams": 12
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 5,
+     "slot": "BREAKFAST",
+     "dish": "Spinach and feta omelette with wholemeal toast",
+     "ingredients": [
+      {
+       "ingredientId": "egg",
+       "grams": 150
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 90
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 30
+      },
+      {
+       "ingredientId": "wholemeal_bread",
+       "grams": 120
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 3
+      }
+     ]
+    },
+    {
+     "day": 5,
+     "slot": "LUNCH",
+     "dish": "Garlic mushroom and spinach wholemeal pasta with feta",
+     "ingredients": [
+      {
+       "ingredientId": "pasta",
+       "grams": 282
+      },
+      {
+       "ingredientId": "mushrooms",
+       "grams": 60
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 90
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 6
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 31
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 5,
+     "slot": "DINNER",
+     "dish": "Roast potato, chickpea and broccoli traybake with feta",
+     "ingredients": [
+      {
+       "ingredientId": "potato",
+       "grams": 180
+      },
+      {
+       "ingredientId": "chickpeas",
+       "grams": 180
+      },
+      {
+       "ingredientId": "broccoli",
+       "grams": 225
+      },
+      {
+       "ingredientId": "feta",
+       "grams": 39
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 6
+      }
+     ]
+    },
+    {
+     "day": 6,
+     "slot": "BREAKFAST",
+     "dish": "Apple oat porridge with yogurt",
+     "ingredients": [
+      {
+       "ingredientId": "oats",
+       "grams": 450
+      },
+      {
+       "ingredientId": "apple",
+       "grams": 72
+      },
+      {
+       "ingredientId": "yogurt",
+       "grams": 225
+      }
+     ]
+    },
+    {
+     "day": 6,
+     "slot": "LUNCH",
+     "dish": "Chickpea, capsicum and spinach brown rice bowl",
+     "ingredients": [
+      {
+       "ingredientId": "chickpeas",
+       "grams": 225
+      },
+      {
+       "ingredientId": "rice",
+       "grams": 300
+      },
+      {
+       "ingredientId": "capsicum",
+       "grams": 60
+      },
+      {
+       "ingredientId": "spinach",
+       "grams": 30
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    },
+    {
+     "day": 6,
+     "slot": "DINNER",
+     "dish": "Baked salmon with sweet potato and broccoli",
+     "ingredients": [
+      {
+       "ingredientId": "salmon",
+       "grams": 120
+      },
+      {
+       "ingredientId": "sweet_potato",
+       "grams": 150
+      },
+      {
+       "ingredientId": "broccoli",
+       "grams": 188
+      },
+      {
+       "ingredientId": "garlic",
+       "grams": 3
+      },
+      {
+       "ingredientId": "olive_oil",
+       "grams": 15
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "members": [
+  {
+   "code": "DEMO-000",
+   "username": "demo_ready",
+   "scenario": "Normal flow",
+   "plan": "chicken-week",
+   "allergies": [],
+   "restrictions": [],
+   "expect": "ALL_MATCHED",
+   "purpose": "Every planned ingredient has an eligible product and Agent 5 builds a complete basket."
+  },
+  {
+   "code": "DEMO-001",
+   "username": "demo_allergy",
+   "scenario": "Allergy safety",
+   "plan": "chicken-week",
+   "allergies": [
+    "Sesame",
+    "Peanut"
+   ],
+   "restrictions": [],
+   "expect": "UNSAFE_EXCLUDED",
+   "purpose": "Same plan as DEMO-000. Agent 4 marks SKUs without an allergen statement UNKNOWN and SKUs that may contain sesame or peanut NON_COMPLIANT; Agent 5 never selects them."
+  },
+  {
+   "code": "DEMO-002",
+   "username": "demo_substitute",
+   "scenario": "Intelligent substitution",
+   "plan": "seafood-week",
+   "allergies": [],
+   "restrictions": [],
+   "expect": "SUBSTITUTED",
+   "purpose": "Salmon and prawns are out of stock at every store. Agent 4 checks Agent 3's planner-approved substitutes; Agent 5 buys an eligible substitute."
+  },
+  {
+   "code": "DEMO-003",
+   "username": "demo_replan",
+   "scenario": "Replanning",
+   "plan": "seafood-week",
+   "allergies": [
+    "Soy"
+   ],
+   "restrictions": [
+    "Pescatarian"
+   ],
+   "expect": "REPLAN_REQUIRED",
+   "purpose": "Same plan and market as DEMO-002, but a pescatarian with a soy allergy may only swap salmon and prawns for each other, and both are out of stock. The basket is blocked and Agent 5 can send Agent 3 a ReplanRequest."
+  },
+  {
+   "code": "SHOP-1",
+   "username": "demo_shopper1",
+   "scenario": "Order history",
+   "plan": "chicken-week",
+   "allergies": [],
+   "restrictions": [],
+   "expect": "ORDER_PLACED",
+   "purpose": "Places an order with FreshMart Central preferred, so the store demand report reaches its 5-member privacy threshold."
+  },
+  {
+   "code": "SHOP-2",
+   "username": "demo_shopper2",
+   "scenario": "Order history",
+   "plan": "chicken-week",
+   "allergies": [],
+   "restrictions": [],
+   "expect": "ORDER_PLACED",
+   "purpose": "Places an order with FreshMart Central preferred, so the store demand report reaches its 5-member privacy threshold."
+  },
+  {
+   "code": "SHOP-3",
+   "username": "demo_shopper3",
+   "scenario": "Order history",
+   "plan": "chicken-week",
+   "allergies": [],
+   "restrictions": [],
+   "expect": "ORDER_PLACED",
+   "purpose": "Places an order with FreshMart Central preferred, so the store demand report reaches its 5-member privacy threshold."
+  },
+  {
+   "code": "SHOP-4",
+   "username": "demo_shopper4",
+   "scenario": "Order history",
+   "plan": "chicken-week",
+   "allergies": [],
+   "restrictions": [],
+   "expect": "ORDER_PLACED",
+   "purpose": "Places an order with FreshMart Central preferred, so the store demand report reaches its 5-member privacy threshold."
+  },
+  {
+   "code": "SHOP-5",
+   "username": "demo_shopper5",
+   "scenario": "Order history",
+   "plan": "chicken-week",
+   "allergies": [],
+   "restrictions": [],
+   "expect": "ORDER_PLACED",
+   "purpose": "Places an order with FreshMart Central preferred, so the store demand report reaches its 5-member privacy threshold."
+  }
+ ]
+}

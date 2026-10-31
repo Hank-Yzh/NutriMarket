@@ -1,0 +1,8 @@
+import {api} from './api.js';
+import {requireUser,node,table,time} from './dietary-ui.js';
+import {$,base,states,lines,runner} from './procurement-ui.js';
+let current,page=1,hasNext=false;const work=runner(()=>{$('#previous').disabled=page===1;$('#next').disabled=!hasNext;});
+async function load(){const d=await api(`${base}/expert/queue?page=${page}`);hasNext=d.items.length===10;$('#page-info').textContent=`Page ${page}`;$('#queue').replaceChildren();for(const b of d.items){const button=node('button',`${b.source.originalPlanningPackage.weekStart} · Basket ${b.basketId}`);button.type='button';button.onclick=()=>work(async()=>{current=await api(base+'/expert/baskets/'+b.basketId);$('#review-panel').hidden=false;$('#meta').textContent=`${states[current.state]} · Version ${current.version}`;$('#issues').replaceChildren(...current.evaluation.issues.map(i=>node('li',i)));lines($('#lines'),current.evaluation.lines);$('#history').replaceChildren(table(['Time','Action','Details'],current.audit.map(e=>[time(e.at),e.action,e.detail])));});$('#queue').append(button);}if(!d.items.length)$('#queue').append(node('p','No cases awaiting review on this page.'));}
+$('#previous').onclick=()=>{page--;work(load);};$('#next').onclick=()=>{page++;work(load);};
+$('#review-form').onsubmit=e=>{e.preventDefault();work(async()=>{await api(base+'/expert/baskets/'+current.basketId+'/review',{method:'POST',body:{expectedVersion:current.version,decision:$('#decision').value,rationale:$('#rationale').value}});$('#review-panel').hidden=true;$('#rationale').value='';await load();});};
+try{await requireUser();await work(load);}catch(e){$('#message').textContent=e.message;}

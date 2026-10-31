@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nutrimarket.nutrimarket.dao.auth.UserMapper">
+    <select id="findByUsername" resultType="com.nutrimarket.nutrimarket.model.auth.AuthModels$UserAccount">
+        SELECT id, username, password_hash, enabled, created_at FROM member_account WHERE username = #{username}
+    </select>
+    <select id="findById" resultType="com.nutrimarket.nutrimarket.model.auth.AuthModels$UserAccount">
+        SELECT id, username, password_hash, enabled, created_at FROM member_account WHERE id = #{id}
+    </select>
+    <insert id="insert">
+        INSERT INTO member_account (id, username, password_hash, enabled, created_at)
+        VALUES (#{id}, #{username}, #{passwordHash}, #{enabled}, #{createdAt})
+    </insert>
+</mapper>

@@ -1,0 +1,4 @@
+import {api} from './api.js';
+import {requireUser,table} from './dietary-ui.js';
+import {$,base,money,runner} from './procurement-ui.js';
+const work=runner();try{await requireUser();await work(async()=>{const r=await api(base+'/reports');$('#store').textContent=r.store+' · Local demand';$('#note').textContent=r.note;$('#suppression').textContent=r.suppressed?`This store cohort contains fewer than ${r.minimumCohort} members. Results are suppressed.`:`Only product cohorts with at least ${r.minimumCohort} distinct members appear. Missing rows are not zero demand.`;$('#report').replaceChildren(table(['SKU','Product','Packages','Local value','Value with promotion labels'],r.demand.map(d=>[d.sku,d.productName,d.packages,money(d.value,d.currency),money(d.promotedValue,d.currency)])));});}catch(e){$('#message').textContent=e.message;}

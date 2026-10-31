@@ -9,13 +9,13 @@ async function page(state='DRAFT',responses={}){
     const elements=new Map(),calls=[],storage=new Map(),redirects=[];
     function element(){return {value:'',checked:false,hidden:false,disabled:false,open:false,textContent:'',children:[],dataset:{},style:{},
         listeners:{},addEventListener(k,v){this.listeners[k]=v;},focus(){},scrollIntoView(){},
-        append(...v){this.children.push(...v);},replaceChildren(...v){this.children=v;},setAttribute(k,v){this[k]=v;},showModal(){this.open=true;},close(){this.open=false;}};}
+        append(...v){this.children.push(...v);},replaceChildren(...v){this.children=v;},setAttribute(k,v){this[k]=v;},replaceWith(){},closest(){return null;},showModal(){this.open=true;},close(){this.open=false;}};}
     const $=s=>{if(!elements.has(s))elements.set(s,element());return elements.get(s);};
     const radios={preference:['ECONOMY','BALANCED','PREMIUM'].map(value=>({value,checked:false})),fulfilment:['PICKUP','DELIVERY'].map(value=>({value,checked:false}))};
     const lines=[{product:{productId:id,facts:{name:'Rice',sku:'SKU-1',store:'Store A',ingredientId:'rice',qualityTier:'BASIC'}},packages:2,subtotal:27,allocations:[]}];
     let basket={basketId:id,version:2,state,planId:id,resultId:id,profileVersion:1,marketRevision:1,planVersion:1,materialChanges:[],learnedSignals:[],audit:[],
         settings:{budget:100,currency:'AUD',preference:'BALANCED',fulfilment:'PICKUP',preferredStores:[],excludedProductIds:[],exclusions:[]},
-        source:{multiStoreComparable:true,marketIntelligenceResult:[],originalPlanningPackage:{healthConstraintSet:{excludedAllergens:['Peanut'],dietaryRestrictions:[],relevantConditions:[]}}},
+        source:{multiStoreComparable:true,marketIntelligenceResult:[],weeklyMealPlan:[{menuLineId:'d0-LUNCH',ingredients:[{ingredientId:'rice'}]}],originalPlanningPackage:{healthConstraintSet:{excludedAllergens:['Peanut'],dietaryRestrictions:[],relevantConditions:[]}}},
         evaluation:{issues:[],lines:state==='BLOCKED'?[]:lines,unfulfilledMenuLines:state==='BLOCKED'?['d0-LUNCH']:[],total:27,productTotal:27,fees:[],explanation:''}};
     const api=async(path,options={})=>{calls.push({path,...options});const kind=path.split('/').pop();
         if(responses[kind])return responses[kind](basket,options);
@@ -27,7 +27,7 @@ async function page(state='DRAFT',responses={}){
     await vm.runInNewContext('(async()=>{'+source+'})()',{$,api,base:'/api/v1/procurement',requireUser:async()=>({id}),node:(tag,text)=>Object.assign(element(),{tag,textContent:text||''}),table:()=>element(),time:()=>'',uuid:()=>true,
         states:{},lines(){},mealTable(){},constraints(){},changeList(container,changes){container.children=changes;},money:()=>'',runner:()=>async f=>{try{await f();}catch{}},
         URLSearchParams,location:{search:'?id='+id,assign:url=>redirects.push(url)},document:{querySelectorAll:selector=>{const found=selector.match(/^\[name="(preference|fulfilment)"\]$/);return found?radios[found[1]]:[];},createTextNode:t=>t},
-        sessionStorage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)},newRecordId:()=>crypto.randomUUID(),Math,Number,String,Map,Set,JSON});
+        sessionStorage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)},newRecordId:()=>crypto.randomUUID(),addressFields:()=>element(),fillAddress(){},readAddress:()=>null,sameAddress:()=>true,Math,Number,String,Map,Set,JSON});
     return {$,calls,redirects,basket:()=>basket,radios,editSelect:()=>$('#edit-products').children[0].children[1].children[0]};
 }
 const changed=(b)=>({basket:{...b,version:3,state:'CHECKOUT_READY',materialChanges:[{type:'PRICE',subject:'Rice',before:'AUD 3',after:'AUD 3.5',detail:'',productId:id}]},order:null});
@@ -66,6 +66,16 @@ test('saving not-needed removes the purchase scope in one recalculation request'
     assert.deepEqual(JSON.parse(JSON.stringify(saved.body.settings.itemEdits)),[{productId:id,choice:'NOT_NEEDED'}]);
     assert.equal(p.$('#basket-editor').open,false);assert.equal(p.$('#omitted-note').hidden,false);assert.match(p.$('#omitted-note').textContent,/rice/);
 });
+test('disliking a food asks for AI consent, then opens the revised plan from the meal planner',async()=>{
+    const p=await page('DRAFT',{preferences:(b,options)=>({...b,version:4,state:'STALE',replanStatus:'REQUESTED',replanRequestId:'r-1',replanRequest:{reason:'PREFERENCE'},settings:options.body.settings})});
+    p.$('#edit-basket').onclick();await settle();assert.equal(p.$('#food-consent-box').hidden,true);
+    const select=p.editSelect();select.value='DISLIKE_FOOD';select.onchange();
+    assert.equal(p.$('#food-consent-box').hidden,false);assert.equal(p.$('#food-consent').required,true);
+    p.$('#food-consent').checked=true;await p.$('#preferences-form').onsubmit({preventDefault(){}});
+    const saved=p.calls.find(c=>c.method==='PUT'&&c.path.endsWith('/preferences'));assert.equal(saved.body.aiConsent,true);
+    assert.deepEqual(JSON.parse(JSON.stringify(saved.body.settings.itemEdits)),[{productId:id,choice:'DISLIKE_FOOD'}]);
+    assert.deepEqual(p.redirects,['/plan.html?id='+id]);
+});
 test('option comparisons are previews and a chosen price-quality and fulfilment pair is saved together',async()=>{
     const p=await page();p.$('#edit-basket').onclick();await settle();
     assert.equal(p.calls.filter(c=>c.path.endsWith('/compare')).length,1);assert.equal(p.calls.some(c=>c.method==='PUT'),false);
@@ -75,7 +85,7 @@ test('option comparisons are previews and a chosen price-quality and fulfilment 
 });
 test('changing a product or budget clears a comparison calculated for older edits',async()=>{
     const p=await page();p.$('#edit-basket').onclick();await settle();assert.equal(p.$('#basket-options').children.length,2);
-    p.$('#budget').value=200;p.$('#preferences-form').oninput({target:{name:'',id:'budget'}});
+    p.$('#budget').value=200;p.$('#preferences-form').oninput({target:{name:'',id:'budget',closest:()=>null}});
     assert.equal(p.$('#basket-options').children.length,0);assert.match(p.$('#comparison-message').textContent,/Update the comparison/);
 });
 test('a rejected save retains the draft and keeps the editor open',async()=>{

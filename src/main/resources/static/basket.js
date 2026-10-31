@@ -29,7 +29,7 @@ function lockedTerms(){const c=current.source.originalPlanningPackage.healthCons
 // The food a product is (its own ingredient), the meals in this plan that use it, and its display name.
 const foodName=id=>current.source.originalPlanningPackage.nutritionSources?.[id]?.ingredient?.name||id.replace(/_/g,' ');
 const plannedMeals=food=>current.source.weeklyMealPlan.filter(m=>m.ingredients.some(i=>i.ingredientId===food));
-function productFood(productId){return current.source.marketIntelligenceResult.flatMap(q=>q.candidates).find(m=>m.product.productId===productId)?.product.facts.ingredientId;}
+function productFood(productId){return [...current.evaluation.lines.map(l=>l.product),...current.source.marketIntelligenceResult.flatMap(q=>q.candidates).map(m=>m.product)].find(x=>x.productId===productId)?.facts.ingredientId;}
 // Foods newly marked as disliked that this plan uses; changing those meals sends a replan request to Qwen, so it needs consent.
 function newFoodDislikes(){const saved=new Set((current.settings.itemEdits||[]).filter(e=>e.choice==='DISLIKE_FOOD').flatMap(e=>e.ingredientIds||[]));
     return [...new Set([...itemEdits.values()].filter(e=>e.choice==='DISLIKE_FOOD').map(e=>productFood(e.productId)).filter(f=>f&&!saved.has(f)&&plannedMeals(f).length))];}
@@ -77,9 +77,9 @@ function renderEditProducts(){
         const label=node('label','Your choice'),select=node('select');select.setAttribute('aria-label',`Action for ${f.name||f.sku||id}`);
         for(const [value,text]of [['KEEP','Keep'],['DISLIKE',"Don't like this product"],['DISLIKE_FOOD',"Don't like this food"],['NOT_NEEDED',"Don't need"]]){const o=node('option',text);o.value=value;select.append(o);}
         select.value=itemEdits.get(id)?.choice||'KEEP';const note=node('p');note.className='edit-product-note';
-        const food=f.ingredientId,meals=food?plannedMeals(food).length:0,label=food?foodName(food):'This food';
+        const food=f.ingredientId,meals=food?plannedMeals(food).length:0,foodLabel=food?foodName(food):'This food';
         const explain=()=>{row.dataset.removed=String(select.value!=='KEEP');note.textContent=select.value==='DISLIKE'?'Another eligible product for the same food will be bought, and later baskets avoid this product.'
-            :select.value==='DISLIKE_FOOD'?(meals?`${label} will be left out of your meal plans. Your meal planner replaces the ${meals} meal(s) that use it; publish the revised plan to get a new basket.`:`${label} is only bought here as a substitute. It will no longer be bought as one, and later meal plans leave it out.`)
+            :select.value==='DISLIKE_FOOD'?(meals?`${foodLabel} will be left out of your meal plans. Your meal planner replaces the ${meals} meal(s) that use it; publish the revised plan to get a new basket.`:`${foodLabel} is only bought here as a substitute. It will no longer be bought as one, and later meal plans leave it out.`)
             :select.value==='NOT_NEEDED'?'This ingredient will not be bought this time. No replacement will be added.':'Included when the basket is recalculated.';};
         select.onchange=()=>{if(select.value==='KEEP')itemEdits.delete(id);else itemEdits.set(id,{productId:id,choice:select.value});explain();showFoodConsent();invalidateComparison();};
         label.append(select);row.append(heading,label,note);explain();$('#edit-products').append(row);

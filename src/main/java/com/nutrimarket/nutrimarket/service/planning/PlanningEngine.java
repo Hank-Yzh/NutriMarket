@@ -20,9 +20,10 @@ public class PlanningEngine {
     public Candidate merge(Candidate existing,Candidate proposed,List<String> affected) {
         if(affected.isEmpty())return proposed;
         if(existing==null||proposed==null||proposed.meals()==null) return null;
-        var ids=proposed.meals().stream().filter(Objects::nonNull).map(PlanningEngine::line).toList();
-        if(ids.size()!=affected.size() || !new HashSet<>(ids).equals(new HashSet<>(affected)))return null;
-        Map<String,CandidateMeal> replacements=new HashMap<>();for(var meal:proposed.meals())replacements.put(line(meal),meal);
+        // The model sometimes echoes the whole week; only affected lines are taken, so unaffected meals can never change.
+        Map<String,CandidateMeal> replacements=new HashMap<>();
+        for(var meal:proposed.meals())if(meal!=null&&affected.contains(line(meal))&&replacements.put(line(meal),meal)!=null)return null;
+        if(!replacements.keySet().equals(new HashSet<>(affected)))return null;
         return new Candidate(existing.meals().stream().map(m->replacements.getOrDefault(line(m),m)).toList());
     }
     public boolean preservesUnaffected(Candidate existing,Candidate proposed,List<String> affected) {

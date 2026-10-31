@@ -256,8 +256,20 @@ class PlanningIntegrationTests {
         assertThatThrownBy(()->service.replan(MEMBER,p.planId,new Replan(request.requestId(),1,ReplanReason.PRICE,"Different evidence",request.menuLineIds(),request.unavailableIngredientIds(),true))).isInstanceOf(AgentException.class);
         publish(updated);assertThat(service.packageFor(MEMBER,p.planId).planVersion()).isEqualTo(2);
     }
+    @Test void replanTakesOnlyAffectedLinesWhenTheModelEchoesTheWholeWeek(){
+        var p=publish(generate(assessment(List.of())));List<CandidateMeal> week=new ArrayList<>(p.candidate.meals());
+        week.set(0,meal(0,Slot.BREAKFAST,"potato"));week.set(1,meal(0,Slot.LUNCH,"potato"));
+        when(model.propose(any(),anyString(),anyString(),anyMap(),any(),anyList(),anyList())).thenReturn(new Candidate(week));
+        var updated=service.replan(MEMBER,p.planId,replan(1,"d0-BREAKFAST","rice"));
+        assertThat(updated.state).isEqualTo(State.DRAFT);assertThat(updated.candidate.meals().get(0).ingredients().get(0).ingredientId()).isEqualTo("potato");
+        // The echoed change to an unaffected line is ignored.
+        assertThat(updated.candidate.meals().subList(1,21)).isEqualTo(p.candidate.meals().subList(1,21));
+    }
     @Test void invalidPartialResponseDoesNotLoseOriginalCandidate(){
-        var p=publish(generate(assessment(List.of())));var next=service.replan(MEMBER,p.planId,replan(1,"d0-BREAKFAST","rice"));assertThat(next.state).isEqualTo(State.DEFERRED);assertThat(next.candidate).isEqualTo(p.candidate);
+        var p=publish(generate(assessment(List.of())));
+        // The response leaves out the affected line, so it cannot be merged.
+        when(model.propose(any(),anyString(),anyString(),anyMap(),any(),anyList(),anyList())).thenReturn(new Candidate(List.of(meal(1,Slot.LUNCH,"potato"))));
+        var next=service.replan(MEMBER,p.planId,replan(1,"d0-BREAKFAST","rice"));assertThat(next.state).isEqualTo(State.DEFERRED);assertThat(next.candidate).isEqualTo(p.candidate);
         when(model.propose(any(),anyString(),anyString(),anyMap(),any(),anyList(),anyList())).thenReturn(new Candidate(List.of(meal(0,Slot.BREAKFAST,"potato"))));assertThat(service.retry(MEMBER,p.planId,new Version(2)).state).isEqualTo(State.DRAFT);
     }
     @Test void replanLimitIsRefusedAndKeepsThePublishedPlan(){

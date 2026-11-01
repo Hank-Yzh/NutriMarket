@@ -71,6 +71,9 @@ public final class MarketModels {
     public record RefreshAudit(UUID requestId,int fromRevision,List<String> menuLineIds,Instant at,String basketId,Instant requiredFreshAfter) {}
     public static class MarketResult {
         public int schemaVersion=1,revision=1,planVersion,refreshCount,preOrderRefreshCount;
+        public int consecutiveRecoveryFailures;
+        public String evidenceFingerprint,recoveryMessage;
+        public Instant nextRecoveryAt;
         public String resultId,memberId,planId,assessmentId,policyVersion,generationToken,deliveryState;
         public long profileVersion;
         public State state;

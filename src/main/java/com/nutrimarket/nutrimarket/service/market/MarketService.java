@@ -32,7 +32,7 @@ public class MarketService {
             var published=planning.get(member,input.planId().toString());
             if(!member.equals(source.memberId())||!published.planId.equals(source.planId())||!published.assessmentId.equals(source.assessmentId())||published.profileVersion!=source.profileVersion()||published.assessmentRevision!=source.assessmentRevision())throw invalidPackage();
             var existing=mapper.forPlan(source.planId(),source.planVersion());if(existing!=null)return decode(existing);
-            var result=new MarketResult();result.resultId=UUID.randomUUID().toString();result.memberId=member;result.planId=source.planId();result.planVersion=source.planVersion();result.assessmentId=source.assessmentId();result.profileVersion=source.profileVersion();result.planning=source;result.policyVersion=policy.policyVersion();result.createdAt=clock.instant();result.updatedAt=result.createdAt;result.generationToken=token;result.state=State.MATCHING;event(result,"RECEIVED","Validated the immutable published PlanningPackage.");mapper.insert(result,json.writeValueAsString(result));
+            var result=new MarketResult();result.resultId=UUID.randomUUID().toString();result.memberId=member;result.planId=source.planId();result.planVersion=source.planVersion();result.assessmentId=source.assessmentId();result.profileVersion=source.profileVersion();result.planning=source;result.policyVersion=policy.policyVersion();result.createdAt=clock.instant();result.updatedAt=result.createdAt;result.generationToken=token;result.state=State.MATCHING;result.evidenceFingerprint=catalog.fingerprint(source);event(result,"RECEIVED","Validated the immutable published PlanningPackage.");mapper.insert(result,json.writeValueAsString(result));
             if(plans.delivery(result.planId,result.planVersion).state().equals("QUEUED"))plans.result(result.planId,result.planVersion,"DELIVERED",null);return result;});
         return token.equals(r.generationToken)?run(r):get(member,r.resultId);
     }
@@ -40,7 +40,7 @@ public class MarketService {
         if(!planCurrent){r.planStale=true;stale(r,"The published plan, assessment, profile or planning week is no longer current.");}
         else if(!r.policyVersion.equals(policy.policyVersion()))stale(r,"The matching policy changed. Refresh before using these results.");
         else if(r.state==State.MATCHING&&r.updatedAt.plus(Duration.ofMinutes(20)).isBefore(clock.instant())){r.state=State.INTERRUPTED;r.generationToken=null;r.readyForProcurement=false;event(r,"INTERRUPTED","Matching lease expired. A bounded refresh can resume matching.");save(r);}
-        else if(r.state!=State.MATCHING&&(r.requirements.stream().anyMatch(q->q.checkedAt().plus(policy.maxAge()).isBefore(clock.instant()))||r.requirements.stream().flatMap(x->x.candidates().stream()).anyMatch(m->engine.expired(m.product())||!catalog.current(m.product()))))stale(r,"Catalogue evidence has expired or changed. Refresh the affected menu lines.");
+        else if(r.state!=State.MATCHING&&(r.requirements.stream().anyMatch(q->q.checkedAt().plus(policy.maxAge()).isBefore(clock.instant()))||r.requirements.stream().flatMap(x->x.candidates().stream()).anyMatch(m->m.eligible()&&(engine.expired(m.product())||!catalog.current(m.product())))))stale(r,"Catalogue evidence has expired or changed. Refresh the affected menu lines.");
         var delivery=mapper.delivery(id,r.revision);r.deliveryState=delivery==null?"NOT_READY":delivery.state();
         r.priceComparison=engine.compare(r);return r;});}
     public ResultPage list(String member,int page,int size){return new ResultPage(mapper.list(member,size,(long)(page-1)*size).stream().map(r->get(member,r.resultId())).toList(),page,size);}
@@ -53,10 +53,24 @@ public class MarketService {
             if(input.planId()!=null&&!input.planId().toString().equals(current.planId))throw AgentException.conflict("This refresh request is for a different plan.");
             if(input.requiredFreshAfter()!=null&&input.requiredFreshAfter().isAfter(clock.instant()))throw AgentException.conflict("The required freshness time cannot be in the future.");
             if(current.revision!=input.expectedRevision()||current.state==State.MATCHING)throw AgentException.conflict("Matching is in progress or the result revision changed. Reload first.");
-            if(!preOrder&&current.refreshCount>=policy.maxRefreshes())throw AgentException.conflict("The market refresh limit has been reached. Operator review or a new published plan is required.");
+            String fingerprint=catalog.fingerprint(current.planning);
+            boolean changed=fingerprint!=null&&!Objects.equals(fingerprint,current.evidenceFingerprint);
+            if(!preOrder&&!changed&&current.nextRecoveryAt!=null&&clock.instant().isBefore(current.nextRecoveryAt))return current;
+            if(!preOrder&&!changed&&fingerprint!=null&&current.consecutiveRecoveryFailures==0&&Set.of(State.STALE,State.NEEDS_ATTENTION).contains(current.state)){
+                current.recoveryMessage="Waiting for updated product evidence. Matching resumes automatically when relevant catalogue data changes.";save(current);return current;
+            }
+            if(changed)current.consecutiveRecoveryFailures=0;
+            current.evidenceFingerprint=fingerprint;current.nextRecoveryAt=null;current.recoveryMessage=null;
             var lines=current.planning.weeklyMealPlan().stream().map(Meal::menuLineId).toList();if(!lines.containsAll(input.menuLineIds())||new HashSet<>(input.menuLineIds()).size()!=input.menuLineIds().size())throw AgentException.conflict("Invalid or duplicate affected menu lines.");
             current.refreshes.add(new RefreshAudit(input.requestId(),current.revision,List.copyOf(input.menuLineIds()),clock.instant(),input.basketId(),input.requiredFreshAfter()));current.requiredFreshAfter=input.requiredFreshAfter();current.revision++;if(preOrder)current.preOrderRefreshCount++;else current.refreshCount++;current.generationToken=token;current.state=State.MATCHING;current.readyForProcurement=false;current.affectedLines=List.copyOf(input.menuLineIds());current.policyVersion=policy.policyVersion();mapper.cancel(id);event(current,preOrder?"PRE_ORDER_REFRESH":"REFRESH_REQUESTED",preOrder?"Procurement requested current price, stock and constraint evidence before order confirmation.":"Rechecking selected lines; the original meals and substitution groups remain unchanged.");save(current);return current;});
         return token.equals(r.generationToken)?run(r):get(member,id);
+    }
+    public boolean recoveryDue(MarketResult r){
+        if(r.planStale||r.state==State.MATCHING)return false;
+        String fingerprint=catalog.fingerprint(r.planning);
+        if(fingerprint!=null&&!Objects.equals(fingerprint,r.evidenceFingerprint))return true;
+        if(r.nextRecoveryAt!=null)return !clock.instant().isBefore(r.nextRecoveryAt);
+        return r.state==State.INTERRUPTED||r.state==State.STALE&&r.evidenceFingerprint==null;
     }
     private record Matched(List<ProductMatch> matches,boolean truncated) {}
     // One catalogue search and semantic scoring per food and description, shared by every meal line that needs it.
@@ -103,10 +117,22 @@ public class MarketService {
         }
         r.requirements=result;r.completedAt=clock.instant();r.readyForProcurement=result.size()==r.planning.ingredientRequirements().size()&&result.stream().allMatch(x->x.candidates().stream().anyMatch(ProductMatch::eligible));
         var eligible=result.stream().flatMap(x->x.candidates().stream()).filter(ProductMatch::eligible).toList();r.multiStoreComparable=eligible.stream().map(x->x.product().facts().store()).distinct().count()>1&&eligible.stream().map(x->x.product().facts().currency()).distinct().count()==1;
-        r.state=r.readyForProcurement?State.COMPLETED:State.NEEDS_ATTENTION;r.generationToken=null;
+        boolean technicalFailure=!r.readyForProcurement&&result.stream().anyMatch(q->q.outcome()==Outcome.SOURCE_FAILURE||q.outcome()==Outcome.MODEL_FAILURE||q.messages().stream().anyMatch(m->m.contains("could not be checked:")));
+        boolean waitingForEvidence=result.stream().anyMatch(q->q.candidates().stream().noneMatch(ProductMatch::eligible)&&q.candidates().stream().anyMatch(m->m.outcome()==Outcome.STALE));
+        r.state=r.readyForProcurement?State.COMPLETED:waitingForEvidence?State.STALE:State.NEEDS_ATTENTION;r.generationToken=null;
+        if(technicalFailure){
+            r.consecutiveRecoveryFailures++;
+            long seconds=r.consecutiveRecoveryFailures>policy.maxRefreshes()?1800:r.consecutiveRecoveryFailures==1?30:r.consecutiveRecoveryFailures==2?120:600;
+            r.nextRecoveryAt=clock.instant().plusSeconds(seconds);
+            r.recoveryMessage="Product matching encountered a service error. Automatic retry is scheduled.";
+        }else{
+            r.consecutiveRecoveryFailures=0;
+            r.nextRecoveryAt=catalog.fingerprint(r.planning)==null&&!r.readyForProcurement?clock.instant().plusSeconds(300):null;
+            r.recoveryMessage=waitingForEvidence?"Waiting for updated product evidence. Matching resumes automatically when relevant catalogue data changes.":null;
+        }
         tx.executeWithoutResult(s->{lock(r.memberId);var latest=owned(r.memberId,r.resultId);if(latest.state!=State.MATCHING||!Objects.equals(token,latest.generationToken))return;
             if(!planCurrent(latest)){latest.planStale=true;stale(latest,"Plan changed during catalogue matching; late results were discarded.");return;}
-            event(r,"MATCHING_COMPLETED",r.readyForProcurement?"Every requirement has at least one eligible candidate. No final SKU has been selected.":"Explicit blocked or missing outcomes require downstream recovery; autonomous procurement is not ready.");save(r);mapper.publish(r.resultId,r.revision,json.writeValueAsString(engine.pack(r)));});
+            event(r,"MATCHING_COMPLETED",r.readyForProcurement?"Every requirement has at least one eligible candidate. No final SKU has been selected.":"Explicit blocked or missing outcomes require downstream recovery; autonomous procurement is not ready.");save(r);if(r.state!=State.STALE)mapper.publish(r.resultId,r.revision,json.writeValueAsString(engine.pack(r)));});
         return get(r.memberId,r.resultId);
     }
     public ProcurementInputPackage packageFor(String member,String id){var checked=get(member,id);if(Set.of(State.MATCHING,State.STALE,State.INTERRUPTED).contains(checked.state))throw AgentException.conflict("Market information is incomplete, stale or still processing. Refresh it first.");
@@ -117,7 +143,7 @@ public class MarketService {
     private AgentException invalidPackage(){return new AgentException(HttpStatus.CONFLICT,"INVALID_PLANNING_PACKAGE","Published planning data is inconsistent or unreadable. Republish a valid plan.");}
     private boolean planCurrent(MarketResult r){var u=users.findById(r.memberId);if(u==null||!u.enabled())return false;var p=planning.get(r.memberId,r.planId);return p.state==com.nutrimarket.nutrimarket.model.planning.PlanningModels.State.PUBLISHED&&p.version==r.planVersion&&!p.stale;}
     private void stale(MarketResult r,String reason){if(r.state==State.STALE)return;r.state=State.STALE;r.readyForProcurement=false;r.multiStoreComparable=false;r.generationToken=null;
-        r.requirements=r.requirements.stream().map(q->new RequirementResult(q.requirementId(),q.menuLineId(),q.ingredientId(),q.requiredGrams(),Outcome.STALE,List.of(reason),q.candidates().stream().map(m->new ProductMatch(m.product(),m.confidence(),m.matchingMethod(),m.hardConstraintStatus(),false,Outcome.STALE,List.of(reason),m.unitPricePer100g(),m.packagesToCover(),m.costToCover())).toList(),q.checkedAt(),q.truncated(),q.checkedSubstitutes())).toList();mapper.cancel(r.resultId);event(r,"INVALIDATED",reason);save(r);}
+        r.requirements=r.requirements.stream().map(q->new RequirementResult(q.requirementId(),q.menuLineId(),q.ingredientId(),q.requiredGrams(),Outcome.STALE,List.of(reason),q.candidates().stream().map(m->!r.planStale&&r.policyVersion.equals(policy.policyVersion())&&!engine.expired(m.product())&&catalog.current(m.product())?m:new ProductMatch(m.product(),m.confidence(),m.matchingMethod(),m.hardConstraintStatus(),false,Outcome.STALE,List.of(reason),m.unitPricePer100g(),m.packagesToCover(),m.costToCover())).toList(),q.checkedAt(),q.truncated(),q.checkedSubstitutes())).toList();mapper.cancel(r.resultId);event(r,"INVALIDATED",reason);save(r);}
     private void event(MarketResult r,String action,String detail){r.updatedAt=clock.instant();r.audit.add(new Event(r.updatedAt,action,detail));}
     private void save(MarketResult r){mapper.update(r,json.writeValueAsString(r));}
     private MarketResult owned(String member,String id){var row=mapper.find(id);if(row==null||!row.memberId().equals(member))throw new AgentException(HttpStatus.NOT_FOUND,"NOT_FOUND","Market result not found.");return decode(row);}

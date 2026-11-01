@@ -248,7 +248,56 @@ class MarketIntegrationTests {
     @Test void unusualConditionsKeepProductsUnknownEvenAfterPublishing(){product(Map.of());var p=generate(withConditions(List.of("Chronic kidney disease")));assertThat(p.state).isEqualTo(com.nutrimarket.nutrimarket.model.planning.PlanningModels.State.DRAFT);
         var r=match(publish(p));
         assertThat(r.readyForProcurement).isFalse();assertThat(r.requirements.get(0).candidates()).allSatisfy(m->{assertThat(m.hardConstraintStatus()).isEqualTo(Compliance.UNKNOWN);assertThat(m.reasons()).anyMatch(x->x.contains("Chronic kidney disease"));});}
-    @Test void refreshBudgetAndOptimisticRevisionAreEnforced(){product(Map.of());var r=match(published());String id=r.resultId;assertThatThrownBy(()->market.refresh(MEMBER,id,new Refresh(UUID.randomUUID(),99,List.of("d0-BREAKFAST")))).isInstanceOf(AgentException.class);for(int i=0;i<3;i++)r=market.refresh(MEMBER,id,refresh(r,allLines(r)));var exhausted=refresh(r,allLines(r));assertThatThrownBy(()->market.refresh(MEMBER,id,exhausted)).isInstanceOf(AgentException.class).hasMessageContaining("limit");}
+    @Test void cumulativeRefreshHistoryDoesNotLockAnOtherwiseValidPlan(){
+        product(Map.of());var r=match(published());String id=r.resultId;
+        assertThatThrownBy(()->market.refresh(MEMBER,id,new Refresh(UUID.randomUUID(),99,List.of("d0-BREAKFAST")))).isInstanceOf(AgentException.class);
+        for(int i=0;i<5;i++)r=market.refresh(MEMBER,id,refresh(r,allLines(r)));
+        assertThat(r.refreshCount).isEqualTo(5);assertThat(r.state).isEqualTo(State.COMPLETED);
+    }
+    @Test void expiredRejectedAlternativeDoesNotInvalidateFreshEligibleProducts(){
+        product(Map.of());product(Map.of("sku","OLD-RICE","observedAt",NOW.minus(Duration.ofHours(25))));
+        var r=match(published());assertThat(r.state).isEqualTo(State.COMPLETED);
+        assertThat(r.requirements).allSatisfy(q->{assertThat(q.candidates()).anyMatch(ProductMatch::eligible);assertThat(q.candidates()).anyMatch(m->m.outcome()==Outcome.STALE);});
+        assertThat(market.packageFor(MEMBER,r.resultId).readyForProcurement()).isTrue();
+    }
+    @Test void unchangedExpiredEvidenceWaitsWithoutSpendingRetriesAndRecoversOnUpdate(){
+        var product=product(Map.of("observedAt",NOW.minus(Duration.ofHours(25))));var r=match(published());
+        assertThat(r.state).isEqualTo(State.STALE);assertThat(r.refreshCount).isZero();assertThat(r.consecutiveRecoveryFailures).isZero();
+        clearInvocations(matcher);var waiting=market.refresh(MEMBER,r.resultId,refresh(r,allLines(r)));
+        assertThat(waiting.revision).isEqualTo(1);assertThat(waiting.recoveryMessage).contains("Waiting");assertThat(market.recoveryDue(waiting)).isFalse();verifyNoInteractions(matcher);
+        assertThatThrownBy(()->market.packageFor(MEMBER,r.resultId)).isInstanceOf(AgentException.class);
+        catalog.save(EXPERT,product.productId(),change(product.facts(),Map.of("expectedVersion",1,"observedAt",NOW)));
+        assertThat(market.recoveryDue(waiting)).isTrue();var recovered=market.refresh(MEMBER,r.resultId,refresh(waiting,allLines(waiting)));
+        assertThat(recovered.state).isEqualTo(State.COMPLETED);assertThat(recovered.consecutiveRecoveryFailures).isZero();assertThat(recovered.recoveryMessage).isNull();
+    }
+    @Test void unrelatedCatalogueChangeDoesNotWakeWaitingResult(){
+        product(Map.of("observedAt",NOW.minus(Duration.ofHours(25))));var r=match(published());
+        assertThat(market.recoveryDue(r)).isFalse();
+        String unrelated=ingredients.all().stream().map(i->i.id()).filter(id->r.planning.ingredientRequirements().stream().noneMatch(q->q.ingredientId().equals(id))&&r.planning.substitutionGroups().stream().noneMatch(g->g.substituteList().stream().anyMatch(sub->sub.ingredientId().equals(id)))).findFirst().orElseThrow();
+        product(Map.of("ingredientId",unrelated,"sku","UNRELATED"));
+        assertThat(market.recoveryDue(r)).isFalse();
+    }
+    @Test void invalidatingOneOfferKeepsOtherFreshOffersVisible(){
+        var old=product(Map.of("observedAt",NOW.minus(Duration.ofHours(23))));product(Map.of("sku","FRESH-RICE"));var r=match(published());
+        when(clock.instant()).thenReturn(NOW.plus(Duration.ofHours(2)));
+        var stale=market.get(MEMBER,r.resultId);assertThat(stale.state).isEqualTo(State.STALE);
+        assertThat(stale.requirements).allSatisfy(q->{assertThat(q.candidates()).anyMatch(ProductMatch::eligible);assertThat(q.candidates()).anyMatch(m->m.product().productId().equals(old.productId())&&!m.eligible());});
+        var recovered=market.refresh(MEMBER,r.resultId,refresh(stale,allLines(stale)));
+        assertThat(recovered.state).isEqualTo(State.COMPLETED);assertThat(recovered.readyForProcurement).isTrue();
+    }
+    @Test void serviceFailuresUseBackoffAndResumeWithoutReview(){
+        product(Map.of());when(matcher.match(any(),anyList())).thenThrow(AgentException.provider("MARKET_MODEL_UNAVAILABLE","Temporary failure"));
+        var r=match(published());assertThat(r.consecutiveRecoveryFailures).isEqualTo(1);assertThat(r.nextRecoveryAt).isEqualTo(NOW.plusSeconds(30));
+        assertThat(markets.delivery(r.resultId,r.revision)).isNotNull();clearInvocations(matcher);
+        var waiting=market.refresh(MEMBER,r.resultId,refresh(r,allLines(r)));assertThat(waiting.revision).isEqualTo(1);verifyNoInteractions(matcher);
+        for(int i=0;i<3;i++){
+            when(clock.instant()).thenReturn(r.nextRecoveryAt);r=market.refresh(MEMBER,r.resultId,refresh(r,allLines(r)));
+        }
+        assertThat(r.consecutiveRecoveryFailures).isEqualTo(4);assertThat(Duration.between(clock.instant(),r.nextRecoveryAt)).isEqualTo(Duration.ofMinutes(30));
+        when(clock.instant()).thenReturn(r.nextRecoveryAt);
+        doAnswer(call->{List<Product> ps=call.getArgument(1);Map<String,BigDecimal> values=new HashMap<>();ps.forEach(p->values.put(p.productId(),BigDecimal.ONE));return values;}).when(matcher).match(any(),anyList());
+        var recovered=market.refresh(MEMBER,r.resultId,refresh(r,allLines(r)));assertThat(recovered.state).isEqualTo(State.COMPLETED);assertThat(recovered.nextRecoveryAt).isNull();assertThat(recovered.consecutiveRecoveryFailures).isZero();
+    }
     @Test void planChangedDuringMatchingDiscardsLateProviderResponse(){product(Map.of());var p=published();when(matcher.match(any(),anyList())).thenAnswer(call->{health.saveProfile(MEMBER,input(1,List.of()));return Map.of();});var r=match(p);assertThat(r.state).isEqualTo(State.STALE);assertThat(r.requirements).isEmpty();assertThat(markets.delivery(r.resultId,1)).isNull();}
     @Test void invalidPublishedContractIsRejectedBeforeMatching(){var p=published();jdbc.update("UPDATE planning_outbox SET payload=? WHERE plan_id=?","{\"schemaVersion\":1}",p.planId);assertThatThrownBy(()->match(p)).isInstanceOf(AgentException.class);verifyNoInteractions(matcher);assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM market_result",Integer.class)).isZero();}
     @Test void differentCurrenciesDisableCrossStoreOptimisation(){product(Map.of());product(Map.of("store","Store B","currency","USD"));var r=match(published());assertThat(r.readyForProcurement).isTrue();assertThat(r.multiStoreComparable).isFalse();}

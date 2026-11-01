@@ -42,6 +42,24 @@ public class CatalogService {
         if(policy.source()==MarketPolicy.Source.HTTP)return remote.search(ingredient,description);
         var rows=mapper.candidates(ingredient,policy.candidateLimit()+1);return new CatalogResult(rows.stream().limit(policy.candidateLimit()).map(r->json.readValue(r.document(),Product.class)).toList(),"Operator-maintained local catalogue",rows.size()>policy.candidateLimit());
     }
+    /** Only evidence relevant to this plan participates; unrelated catalogue edits never trigger a retry. */
+    public String fingerprint(com.nutrimarket.nutrimarket.model.planning.PlanningModels.PlanningPackage plan){
+        if(policy.source()!=MarketPolicy.Source.LOCAL)return null;
+        Set<String> ingredients=new TreeSet<>();
+        plan.ingredientRequirements().forEach(r->ingredients.add(r.ingredientId()));
+        plan.substitutionGroups().forEach(g->g.substituteList().forEach(s->ingredients.add(s.ingredientId())));
+        StringBuilder value=new StringBuilder(policy.policyVersion()+"|"+policy.semanticEnabled()+"|"+policy.model());
+        for(String ingredient:ingredients){
+            value.append('|').append(ingredient);
+            for(var row:mapper.candidates(ingredient,policy.candidateLimit()+1)){
+                var p=json.readValue(row.document(),Product.class);var observed=p.facts().observedAt();
+                boolean fresh=observed!=null&&!observed.isAfter(clock.instant().plusSeconds(60))&&!observed.plus(policy.maxAge()).isBefore(clock.instant());
+                value.append('|').append(row.productId()).append(':').append(row.version()).append(':').append(fresh);
+            }
+        }
+        try{return java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(value.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8)));}
+        catch(java.security.NoSuchAlgorithmException e){throw new IllegalStateException(e);}
+    }
     public boolean current(Product p){if(policy.source()!=MarketPolicy.Source.LOCAL)return true;var row=mapper.product(p.productId());return row!=null&&row.version()==p.version();}
     private AgentException bad(String message){return new AgentException(HttpStatus.BAD_REQUEST,"INVALID_CATALOGUE_PRODUCT",message);}
 }

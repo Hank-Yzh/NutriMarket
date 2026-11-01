@@ -154,6 +154,32 @@ class ProcurementIntegrationTests {
         assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM nutrition_plan",Integer.class)).isEqualTo(1);
         verify(matcher,times(1)).match(any(),anyList());verifyNoInteractions(model);
     }
+    @Test void automaticServiceRetryContinuesEvenWhenFailureAlreadyCreatedABasket(){
+        product(Map.of());when(matcher.match(any(),anyList())).thenThrow(AgentException.provider("MARKET_MODEL_UNAVAILABLE","Temporary service failure"));
+        var result=match(automaticPlan());var delivery=new MarketDelivery(markets,market,marketPolicy,procurement);delivery.deliverPending();
+        assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM shopping_basket",Integer.class)).isEqualTo(1);
+        assertThat(pipeline.status(MEMBER).stage().name()).isEqualTo("MATCH_PAUSED");
+        clearInvocations(matcher);pipeline.advance(MEMBER);verifyNoInteractions(matcher);
+        doAnswer(call->{List<Product> ps=call.getArgument(1);Map<String,BigDecimal> scores=new HashMap<>();ps.forEach(p->scores.put(p.productId(),BigDecimal.ONE));return scores;}).when(matcher).match(any(),anyList());
+        when(clock.instant()).thenReturn(result.nextRecoveryAt);pipeline.advance(MEMBER);delivery.deliverPending();
+        assertThat(pipeline.status(MEMBER).stage().name()).isEqualTo("BASKET_READY");
+        assertThat(market.get(MEMBER,result.resultId).consecutiveRecoveryFailures).isZero();
+        assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM shopping_basket",Integer.class)).isEqualTo(1);
+        verify(matcher,times(1)).match(any(),anyList());
+    }
+    @Test void recoveredMarketEvidenceUpdatesExistingBasketWithoutOrderingOrLosingPreferences(){
+        var product=product(Map.of());var result=match(automaticPlan());
+        var delivery=new MarketDelivery(markets,market,marketPolicy,procurement);delivery.deliverPending();
+        var before=procurement.get(MEMBER,pipeline.status(MEMBER).basketId());
+        catalog.save(EXPERT,product.productId(),change(facts(),Map.of("expectedVersion",product.version(),"price",n("4"))));
+        pipeline.advance(MEMBER);delivery.deliverPending();
+        var after=procurement.get(MEMBER,before.basketId);
+        assertThat(after.basketId).isEqualTo(before.basketId);assertThat(after.settings).isEqualTo(before.settings);
+        assertThat(after.marketRevision).isEqualTo(2);assertThat(after.checkoutAt).isNull();assertThat(after.orderId).isNull();
+        assertThat(after.audit).anyMatch(e->e.action().equals("MARKET_RECOVERED"));
+        assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM shopping_basket",Integer.class)).isEqualTo(1);
+        assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM procurement_order",Integer.class)).isZero();
+    }
     @Test void interruptedAutomaticMatchingResumesThroughBoundedRefresh(){
         product(Map.of());var plan=automaticPlan();var result=match(plan);
         result.state=State.MATCHING;result.updatedAt=NOW.minus(Duration.ofMinutes(21));
@@ -165,16 +191,15 @@ class ProcurementIntegrationTests {
         assertThat(refreshed.revision).isEqualTo(2);assertThat(refreshed.refreshCount).isEqualTo(1);
         verify(matcher,times(1)).match(any(),anyList());
     }
-    @Test void automaticMatchingHonoursRefreshLimitAndExplainsThePause(){
+    @Test void updatedEvidenceRecoversAutomaticallyEvenAfterLegacyRefreshLimit(){
         var product=product(Map.of());var result=match(automaticPlan());
         result.refreshCount=marketPolicy.maxRefreshes();markets.update(result,json.writeValueAsString(result));
         catalog.save(EXPERT,product.productId(),change(facts(),Map.of("expectedVersion",product.version())));
         clearInvocations(matcher);pipeline.advance(MEMBER);pipeline.advance(MEMBER);
         var status=pipeline.status(MEMBER);
-        assertThat(status.stage().name()).isEqualTo("MATCH_PAUSED");
-        assertThat(status.message()).contains("limit has been reached");
-        assertThat(market.get(MEMBER,result.resultId).revision).isEqualTo(1);
-        verifyNoInteractions(matcher);
+        assertThat(status.stage().name()).isEqualTo("BUILDING_BASKET");
+        assertThat(market.get(MEMBER,result.resultId).revision).isEqualTo(2);
+        verify(matcher,times(1)).match(any(),anyList());
     }
     @Test void failedBasketHandoffIsVisibleAndManualRetryUsesExistingMatches()throws Exception{
         product(Map.of());var result=match(automaticPlan());

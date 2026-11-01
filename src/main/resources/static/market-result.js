@@ -13,6 +13,7 @@ const tones={COMPLIANT:'good',NON_COMPLIANT:'bad',UNKNOWN:'warn'};
 function chip(text,tone=''){const c=node('span',text);c.className='chip';if(tone)c.dataset.tone=tone;return c;}
 function statusMessage(r){
     if(r.planStale)return 'Meal plan updated. Match the latest plan.';
+    if(r.recoveryMessage)return r.recoveryMessage+(r.nextRecoveryAt?` Next retry: ${time(r.nextRecoveryAt)}.`:'');
     if(r.state==='MATCHING')return 'Matching products… this page updates by itself.';
     if(r.state==='STALE')return 'Product information is out of date. Select Refresh to match again.';
     if(r.state==='INTERRUPTED')return 'Matching paused. Select Refresh to retry.';
@@ -149,12 +150,12 @@ function render(r){
     $('#result-content').hidden=false;$('#period').textContent=`${r.planning.weekStart} – ${r.planning.weekEnd}`;
     $('#state').textContent=r.planStale?'Plan updated':r.state==='COMPLETED'&&!ready?'Partly matched':states[r.state];$('#state').dataset.state=ready?'COMPLETED':'';
     $('#readiness').textContent=statusMessage(r);$('#readiness').dataset.ready=String(ready);
-    $('#meta').textContent=`Plan v${r.planVersion} · Market revision ${r.revision} · Profile v${r.profileVersion} · Re-matches used ${r.refreshCount}`;
+    $('#meta').textContent=`Plan v${r.planVersion} · Market revision ${r.revision} · Profile v${r.profileVersion} · Re-matches performed ${r.refreshCount} · Consecutive service failures ${r.consecutiveRecoveryFailures||0}`;
     $('#capability').textContent=r.multiStoreComparable?'Offers from several supermarkets are comparable, so your basket may combine stores.':'Only one supermarket has comparable offers.';
     $('#plan-link').href='/plan.html?id='+encodeURIComponent(r.planId);
     comparison(r.state==='MATCHING'?null:r.priceComparison);
     $('#history').replaceChildren(table(['Time','Action','Details'],r.audit.map(e=>[time(e.at),e.action,e.detail])));
-    clearTimeout(poll);if(r.state==='MATCHING')poll=setTimeout(()=>load().catch(e=>{$('#message').textContent=e.message;}),5000);
+    clearTimeout(poll);if(!r.planStale&&(['MATCHING','STALE','INTERRUPTED'].includes(r.state)||r.nextRecoveryAt))poll=setTimeout(()=>load().catch(e=>{$('#message').textContent=e.message;}),5000);
 }
 async function load(){render(await api(path));}
 // Opens the basket built from this result when there is one; otherwise the basket overview.
@@ -162,6 +163,6 @@ async function basketLink(){try{const d=await api('/api/v1/procurement/baskets?p
 async function work(fn){if(busy)return;busy=true;$('#reload').disabled=true;$('#message').textContent='Loading market information...';try{await fn();$('#message').textContent='';}catch(e){$('#message').textContent=e.message;}finally{busy=false;$('#reload').disabled=false;}}
 // Out-of-date or interrupted results are matched again for the whole week; otherwise Refresh only reloads.
 async function rematch(){await api(path+'/refresh',{method:'POST',body:{expectedRevision:current.revision,menuLineIds:current.planning.weeklyMealPlan.map(m=>m.menuLineId),requestId:newRecordId()}});await load();}
-$('#reload').onclick=()=>work(async()=>{await load();if(!current.planStale&&['STALE','INTERRUPTED'].includes(current.state))await rematch();});
+$('#reload').onclick=()=>work(async()=>{await load();if(!current.planStale&&['STALE','INTERRUPTED','NEEDS_ATTENTION'].includes(current.state))await rematch();});
 legend();
 try{await requireUser();if(!uuid(id))throw new Error('Invalid market result ID. Open a result from the market overview.');await work(load);basketLink();}catch(e){$('#message').textContent=e.message;}

@@ -4,7 +4,7 @@ Agent 5 implements UC-06 and PM-01 to PM-10 using Controller → Service → DAO
 
 ## Member workflow (UC-06 screens)
 
-1. Publish an Agent 3 meal plan and complete Agent 4 matching. The Agent 4 outbox delivers in process when its procurement endpoint is blank, or the member opens **Shopping baskets** (`/procurement.html`). There is one persistent basket per market result. With standing automatic-planning consent, the pipeline resumes stale or interrupted matching when no basket exists, within Agent 4's existing refresh limit; successful refreshed results return to the outbox for normal basket creation. It does not regenerate the plan, change meal quantities or bypass evidence freshness. Exhausted refreshes and failed handoffs are shown as paused states, with recovery links, instead of indefinite preparation.
+1. Publish an Agent 3 meal plan and complete Agent 4 matching. The Agent 4 outbox delivers in process when its procurement endpoint is blank, or the member opens **Shopping baskets** (`/procurement.html`). There is one persistent basket per market result. With standing automatic-planning consent, the pipeline resumes stale or interrupted matching when no basket exists, when relevant catalogue evidence changes, with backoff for technical failures; successful refreshed results return to the outbox for normal basket creation. It does not regenerate the plan, change meal quantities or bypass evidence freshness. Waiting for evidence and service retry delays are shown explicitly; catalogue recovery requires no operator approval.
 2. **Screen 1, basket review** (`/basket.html`):
    - **Locked health constraints**: allergies, dietary restrictions, conditions, daily nutrition limits and expert decisions are read-only (PM-07).
    - **Basket items**, by product or by meal. Each product shows name, brand, category, range tier, package size, unit price, price per pack, quantity, promotion, availability, store and update time. Each product also lists its constraint evidence, every check with what it was based on (PM-02). A substitution marker shows "Originally X → now Y (same substitution group)" when a product was replaced or the planner's group allowed another ingredient (PM-03).
@@ -23,7 +23,7 @@ Agent 5 implements UC-06 and PM-01 to PM-10 using Controller → Service → DAO
 
    `/orders.html` lists every order.
 
-The confirmation window defaults to five minutes. Before ordering, the server checks again: source revision, published plan, profile, assessment clearance, evidence freshness, product versions, policy version, daily targets, budget and every selected SKU. Checkout refreshes do not use Agent 4's manual refresh budget. Each basket allows `max-checkouts` (default 20) of them, and an expert's `RETURN_FOR_ADJUSTMENT` resets the count. Member-row locks serialise mutations. Model calls and store calls run outside those locks.
+The confirmation window defaults to five minutes. Before ordering, the server checks again: source revision, published plan, profile, assessment clearance, evidence freshness, product versions, policy version, daily targets, budget and every selected SKU. Checkout refreshes are counted separately from Agent 4's recovery history. Each basket allows `max-checkouts` (default 20) of them, and an expert's `RETURN_FOR_ADJUSTMENT` resets the count. Member-row locks serialise mutations. Model calls and store calls run outside those locks.
 
 ## Selection rules (PM-04 order)
 

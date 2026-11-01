@@ -21,34 +21,65 @@ function substitution(l,changes){
     for(const c of changes.filter(c=>c.productId===l.product.productId&&['SUBSTITUTION','STOCK'].includes(c.type)))out.push(`Originally ${c.before} → now ${c.after} (same substitution group). ${c.detail}`);
     return out;
 }
-export function lines(container,items,changes=[],edit){
+// Status chips, the PM-03 marker, numeric facts, PM-02 evidence and meal coverage shared by both product layouts.
+function statusChips(l,withStore){
+    const f=l.product.facts,badges=node('div');badges.className='chip-row';
+    if(withStore)badges.append(chip(f.store));
+    badges.append(chip(f.availability==='IN_STOCK'?'In stock':f.availability.replaceAll('_',' ').toLowerCase(),f.availability==='IN_STOCK'?'good':'warn'));
+    if(withStore&&f.qualityTier)badges.append(chip(tiers[f.qualityTier],f.qualityTier==='PREMIUM'?'premium':''));
+    if(f.promotion)badges.append(chip(`Promotion: ${f.promotion}`,'promo'));
+    if(Number(l.pantryGrams)>0)badges.append(chip(Number(l.packages)===0?'Covered by your pantry · nothing to buy':`${grams(l.pantryGrams)} ready-to-eat from your pantry`,'good'));
+    return badges;
+}
+function lineDetails(l,changes){
+    const f=l.product.facts,out=[];
+    for(const text of substitution(l,changes)){const p=node('p',text);p.className='substitution';out.push(p);}
+    const facts=node('div');facts.className='fact-grid';
+    facts.append(fact('Package size',grams(f.packageGrams)),fact('Unit price',`${money(Number(f.price)*1000/Number(f.packageGrams),f.currency)}/kg`),fact('Price per pack',money(f.price,f.currency)),
+        fact('Quantity',`${l.packages} × ${grams(f.packageGrams)}`),fact('Needed as sold',grams(l.requiredSoldGrams)),fact('Surplus',grams(l.surplusGrams)),fact('Updated',time(f.observedAt)));
+    out.push(facts);
+    const checks=l.checks||[],evidence=node('details');evidence.className='check-details';
+    evidence.append(node('summary',`Constraint evidence · ${checks.filter(c=>c.result==='PASS').length} checks passed`));
+    const list=node('ul');list.className='check-list';
+    for(const c of checks){const li=node('li');li.dataset.result=c.result;li.append(node('strong',c.constraint),node('span',c.evidence));list.append(li);}
+    if(!checks.length)list.append(node('li',`Constraint check: ${l.allocations[0]?.evidence.hardConstraintStatus}. Detailed evidence is shown after the next rebuild.`));
+    evidence.append(list);out.push(evidence);
+    const meals=node('details');meals.append(node('summary',`Meals covered · ${l.allocations.length}`));
+    meals.append(table(['Meal / requirement','Edible portion','As sold','Constraint check'],l.allocations.map(a=>[`${a.menuLineId} / ${a.requirementId}`,`${number(a.edibleGrams)} g`,`${number(a.soldGrams)} g`,a.evidence.hardConstraintStatus])));
+    meals.append(node('p',`Ingredients: ${f.ingredients.join(', ')}. Allergens: ${f.allergens.join(', ')||'None declared in checked evidence'}. May contain: ${f.mayContain.join(', ')||'None declared in checked evidence'}.`),nutrients(f.per100g));
+    out.push(meals);return out;
+}
+function editButton(l,edit){if(!edit||!(Number(l.packages)>0))return [];const button=node('button','Edit');button.type='button';button.onclick=()=>edit(l.product.productId);return [button];}
+// Compact row: name and brand, store, range, quantity and subtotal, Edit; the PM-03 marker stays visible; everything else is one click away.
+function compactLine(l,changes,edit){
+    const f=l.product.facts,box=node('article');box.className='basket-line compact-line';
+    const more=node('details');more.className='line-details';
+    const summary=node('summary'),main=node('span'),title=node('span'),name=node('strong',f.name),meta=node('span'),brand=node('span',f.brand);
+    main.className='line-main';title.className='line-title';name.title=f.name;meta.className='line-meta';brand.className='line-brand';title.append(name);
+    const swaps=substitution(l,changes);
+    if(swaps.length){const swap=node('span',swaps.join(' · '));swap.className='line-swap';swap.title=swaps.join('\n');title.append(swap);}const store=chip(f.store);store.classList.add('line-store');meta.append(brand,store);
+    if(f.qualityTier)meta.append(chip(f.qualityTier[0]+f.qualityTier.slice(1).toLowerCase(),f.qualityTier==='PREMIUM'?'premium':f.qualityTier==='BASIC'?'muted':''));
+    main.append(title,meta);
+    const amount=node('span');amount.className='line-amount';
+    amount.append(node('span',Number(l.packages)>0?`${l.packages} × ${grams(f.packageGrams)}`:'From pantry'),node('strong',money(l.subtotal,f.currency)));
+    const toggle=node('span');toggle.className='disclosure-action';
+    const collapsed=node('span','Details'),expanded=node('span','Hide'),chevron=node('span','⌄');collapsed.className='when-collapsed';expanded.className='when-expanded';chevron.className='disclosure-chevron';chevron.setAttribute('aria-hidden','true');
+    toggle.append(collapsed,expanded,chevron);summary.append(main,amount,toggle);
+    const body=node('div');body.className='line-body';
+    const id=node('p',`${f.brand} · ${f.category} · SKU ${f.sku}`);id.className='field-help';
+    // One click on the row reveals everything, so the inner evidence and meal sections start open.
+    const details=lineDetails(l,changes);for(const d of details)if(d.tagName==='DETAILS')d.open=true;
+    body.append(id,statusChips(l,false),...details);
+    more.append(summary,body);box.append(more,...editButton(l,edit));return box;
+}
+export function lines(container,items,changes=[],edit,{compact=false}={}){
     container.replaceChildren();
     if(!items.length){container.append(node('p','No complete product selection is available. Resolve the issues above before checkout.'));return;}
     for(const l of items){
+        if(compact){container.append(compactLine(l,changes,edit));continue;}
         const f=l.product.facts,box=node('article');box.className='product-match basket-line';
-        const head=node('div');head.className='section-heading';const title=node('div');title.append(node('h3',f.name),node('p',`${f.brand} · ${f.category} · SKU ${f.sku}`));head.append(title,node('strong',money(l.subtotal,f.currency)));
-        if(edit&&Number(l.packages)>0){const button=node('button','Edit');button.type='button';button.onclick=()=>edit(l.product.productId);head.append(button);}
-        const badges=node('div');badges.className='chip-row';
-        badges.append(chip(f.store),chip(f.availability==='IN_STOCK'?'In stock':f.availability.replaceAll('_',' ').toLowerCase(),f.availability==='IN_STOCK'?'good':'warn'));
-        if(f.qualityTier)badges.append(chip(tiers[f.qualityTier],f.qualityTier==='PREMIUM'?'premium':''));
-        if(f.promotion)badges.append(chip(`Promotion: ${f.promotion}`,'promo'));
-        if(Number(l.pantryGrams)>0)badges.append(chip(Number(l.packages)===0?'Covered by your pantry · nothing to buy':`${grams(l.pantryGrams)} ready-to-eat from your pantry`,'good'));
-        box.append(head,badges);
-        for(const text of substitution(l,changes)){const p=node('p',text);p.className='substitution';box.append(p);}
-        const facts=node('div');facts.className='fact-grid';
-        facts.append(fact('Package size',grams(f.packageGrams)),fact('Unit price',`${money(Number(f.price)*1000/Number(f.packageGrams),f.currency)}/kg`),fact('Price per pack',money(f.price,f.currency)),
-            fact('Quantity',`${l.packages} × ${grams(f.packageGrams)}`),fact('Needed as sold',grams(l.requiredSoldGrams)),fact('Surplus',grams(l.surplusGrams)),fact('Updated',time(f.observedAt)));
-        box.append(facts);
-        const checks=l.checks||[],evidence=node('details');evidence.className='check-details';
-        evidence.append(node('summary',`Constraint evidence · ${checks.filter(c=>c.result==='PASS').length} checks passed`));
-        const list=node('ul');list.className='check-list';
-        for(const c of checks){const li=node('li');li.dataset.result=c.result;li.append(node('strong',c.constraint),node('span',c.evidence));list.append(li);}
-        if(!checks.length)list.append(node('li',`Constraint check: ${l.allocations[0]?.evidence.hardConstraintStatus}. Detailed evidence is shown after the next rebuild.`));
-        evidence.append(list);box.append(evidence);
-        const meals=node('details');meals.append(node('summary',`Meals covered · ${l.allocations.length}`));
-        meals.append(table(['Meal / requirement','Edible portion','As sold','Constraint check'],l.allocations.map(a=>[`${a.menuLineId} / ${a.requirementId}`,`${number(a.edibleGrams)} g`,`${number(a.soldGrams)} g`,a.evidence.hardConstraintStatus])));
-        meals.append(node('p',`Ingredients: ${f.ingredients.join(', ')}. Allergens: ${f.allergens.join(', ')||'None declared in checked evidence'}. May contain: ${f.mayContain.join(', ')||'None declared in checked evidence'}.`),nutrients(f.per100g));
-        box.append(meals);container.append(box);
+        const head=node('div');head.className='section-heading';const title=node('div');title.append(node('h3',f.name),node('p',`${f.brand} · ${f.category} · SKU ${f.sku}`));head.append(title,node('strong',money(l.subtotal,f.currency)),...editButton(l,edit));
+        box.append(head,statusChips(l,true),...lineDetails(l,changes));container.append(box);
     }
 }
 // Block A by menu line: one row per planned ingredient requirement.

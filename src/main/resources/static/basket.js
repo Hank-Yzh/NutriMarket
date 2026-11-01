@@ -167,7 +167,7 @@ function render(b){current=b;$('#content').hidden=false;$('#state').textContent=
     const issues=b.evaluation.issues;$('#issues').hidden=!issues.length;$('#issues').replaceChildren(...issues.slice(0,4).map(x=>issueItem(x,b)));
     if(issues.length>4){const more=node('details'),li=node('li'),list=node('ul');li.className='basket-more-issues';list.className='basket-issues';list.append(...issues.slice(4).map(x=>issueItem(x,b)));more.append(node('summary',`Show ${issues.length-4} more issue(s)`),list);li.append(more);$('#issues').append(li);}$('#explanation').textContent=b.evaluation.explanation;
     $('#market-link').href='/market-result.html?id='+b.resultId;$('#plan-link').href='/plan.html?id='+b.planId;$('#order-link').hidden=!b.orderId;if(b.orderId)$('#order-link').href='/order.html?id='+b.orderId;
-    constraints($('#constraints'),b.source);lines($('#lines'),b.evaluation.lines,b.materialChanges||[],frozen.includes(b.state)?null:openEditor);mealTable($('#meals'),b);
+    constraints($('#constraints'),b.source);lines($('#lines'),b.evaluation.lines,b.materialChanges||[],frozen.includes(b.state)?null:openEditor,{compact:true});mealTable($('#meals'),b);
     fillSettings(b);
     budget(b);$('#submit').textContent=b.state==='CHECKOUT_READY'?'Review and confirm order →':'Confirm and place order →';
     renderSavedChoices(b);$('#history').replaceChildren(table(['Time','Action','Details'],b.audit.map(e=>[time(e.at),e.action,e.detail])));controls();}

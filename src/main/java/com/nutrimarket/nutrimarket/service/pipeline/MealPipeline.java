@@ -64,13 +64,13 @@ public class MealPipeline {
         if(plan.state==State.DRAFT)plan=planning.publishAutomatically(member,plan.planId,plan.version);
         if(plan.state==State.PUBLISHED)refreshMatching(member,plan);
     }
-    /** A catalogue change cancels the old handoff. Resume matching under the existing bounded refresh budget. */
+    /** Resume on changed evidence or a due service retry; historical refresh totals never lock a plan. */
     private void refreshMatching(String member,Plan plan) {
         var found=markets.forPlan(plan.planId,plan.version);
-        if(found==null||baskets.forResult(found.resultId())!=null)return;
+        if(found==null)return;
         var result=market.get(member,found.resultId());
-        if(result.planStale||result.refreshCount>=marketPolicy.maxRefreshes())return;
-        if(result.state!=MarketModels.State.STALE&&result.state!=MarketModels.State.INTERRUPTED)return;
+        if(result.state!=MarketModels.State.STALE&&result.state!=MarketModels.State.INTERRUPTED&&result.state!=MarketModels.State.NEEDS_ATTENTION)return;
+        if(!market.recoveryDue(result))return;
         market.refresh(member,result.resultId,new MarketModels.Refresh(UUID.randomUUID(),result.revision,
             result.planning.weeklyMealPlan().stream().map(Meal::menuLineId).toList()));
     }
@@ -101,12 +101,12 @@ public class MealPipeline {
             return status(Stage.MATCHING,"Matching products to your meal plan…",assessmentId,period,plan,null);
         }
         var result=market.get(member,found.resultId());var basket=baskets.forResult(result.resultId);
-        if(basket==null) {
+        if(basket==null||result.state==MarketModels.State.MATCHING||result.state==MarketModels.State.STALE||result.state==MarketModels.State.INTERRUPTED||result.nextRecoveryAt!=null) {
             if(result.state==MarketModels.State.MATCHING)
                 return status(Stage.MATCHING,"Matching products to your meal plan…",assessmentId,period,plan,result);
-            if(result.state==MarketModels.State.STALE||result.state==MarketModels.State.INTERRUPTED) {
+            if(result.state==MarketModels.State.STALE||result.state==MarketModels.State.INTERRUPTED||result.nextRecoveryAt!=null) {
                 String reason=result.state==MarketModels.State.STALE?"Product information changed or expired.":"Product matching was interrupted.";
-                String next=result.refreshCount<marketPolicy.maxRefreshes()?" Matching will retry automatically.":" The automatic refresh limit has been reached. Open matching for details.";
+                String next=result.recoveryMessage==null?" Matching will resume automatically when evidence is updated.":" "+result.recoveryMessage;
                 return status(Stage.MATCH_PAUSED,reason+next,assessmentId,period,plan,result);
             }
             if(!"QUEUED".equals(result.deliveryState))

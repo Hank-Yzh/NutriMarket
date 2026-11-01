@@ -41,6 +41,8 @@ nutrimarket:
   market:
     policy-version: market-v4
     max-age: 24h
+    # Fast retries after technical failures; exhausted bursts continue with a 30-minute cooldown.
+    # refreshCount remains an audit total and never locks a plan.
     max-refreshes: 3
     candidate-limit: 20
     confidence-threshold: 0.85

@@ -48,7 +48,15 @@ public class ProcurementService {
         lock(member);var source=market.packageFor(member,resultId);
         if(revision!=null&&source.marketRevision()!=revision)throw AgentException.conflict("Market revision changed before delivery.");
         var existing=mapper.forResult(resultId);
-        if(existing!=null){markets.delivered(resultId,source.marketRevision(),"DELIVERED");return owned(member,existing.id());}
+        if(existing!=null){
+            var b=owned(member,existing.id());
+            if(b.marketRevision!=source.marketRevision()&&!FROZEN.contains(b.state)){
+                engine.validate(source);b.source=source;b.marketRevision=source.marketRevision();b.version++;b.checkoutAt=null;
+                b.materialChanges=new ArrayList<>();evaluate(b);
+                event(b,"MARKET_RECOVERED","Updated product evidence was received; preferences were preserved and checkout must be revalidated.");save(b);
+            }
+            markets.delivered(resultId,source.marketRevision(),"DELIVERED");return b;
+        }
         engine.validate(source);var b=new Basket();b.basketId=UUID.randomUUID().toString();b.memberId=member;b.resultId=resultId;b.planId=source.planId();b.assessmentId=source.assessmentId();b.planVersion=source.planVersion();b.profileVersion=source.profileVersion();b.marketRevision=source.marketRevision();b.source=source;b.policyVersion=policy.policyVersion();b.createdAt=clock.instant();
         String currency=source.marketIntelligenceResult().stream().flatMap(q->q.candidates().stream()).filter(m->m.eligible()).map(m->m.product().facts().currency()).findFirst().orElse("AUD");
         b.settings=learn(member,currency,source,b.learnedSignals);

@@ -52,8 +52,7 @@ public class IngredientCatalog {
         food("ginger","Fresh ginger","Ginger root, raw",169231,true,true),
         food("spring_onion","Spring onion","Onions, spring or scallions (includes tops and bulb), raw",170005,true,true));
     // Per-meal gram ceilings for oils and seasonings; other ingredients allow up to 600 g.
-    private static final Map<String,Integer> MAX_GRAMS=Map.of("olive_oil",60,"sesame_oil",20,"soy_sauce",20,"garlic",20,"ginger",20,"spring_onion",50,"feta",100);
-    public int maxGrams(String id) { return MAX_GRAMS.getOrDefault(id,600); }
+    public int maxGrams(String id) { return com.nutrimarket.nutrimarket.model.planning.PlanningRules.maxGrams(id); }
     // Shelf-stable staples whose unopened or dry leftovers keep for later weeks. Oils and sauces keep once opened.
     private static final Set<String> STAPLES=Set.of("oats","rice","white_rice","lentils","pasta","quinoa","rice_noodles","olive_oil","sesame_oil","soy_sauce");
     private static final Set<String> CONDIMENTS=Set.of("olive_oil","sesame_oil","soy_sauce");

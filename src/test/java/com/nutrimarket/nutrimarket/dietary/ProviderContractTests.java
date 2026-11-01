@@ -34,6 +34,7 @@ class ProviderContractTests {
     int visionStatus=200;
     AtomicReference<String> visionBody=new AtomicReference<>();
     AtomicReference<String> auth=new AtomicReference<>();
+    java.util.concurrent.atomic.AtomicInteger nutritionCalls=new java.util.concurrent.atomic.AtomicInteger();
     @BeforeEach void start() throws Exception {
         server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);
         root="http://127.0.0.1:"+server.getAddress().getPort();
@@ -64,6 +65,7 @@ class ProviderContractTests {
             exchange.getResponseBody().write(bytes); exchange.close();
         });
         server.createContext("/food/123",exchange->{
+            nutritionCalls.incrementAndGet();
             byte[] bytes=detailsResponse.getBytes(StandardCharsets.UTF_8); exchange.sendResponseHeaders(200,bytes.length);
             exchange.getResponseBody().write(bytes); exchange.close();
         });
@@ -162,6 +164,47 @@ class ProviderContractTests {
         var source=new PlanningModels.IngredientSource(new PlanningModels.Ingredient("rice","Cooked brown rice","Rice, brown, long-grain, cooked",169704L,java.util.Set.of(),true,true),nutrition);
         planning("test-key").propose(input,"Goals","Preferences",java.util.Map.of("rice",source),null,java.util.List.of(),java.util.List.of());
         assertThat(visionBody.get()).contains("Cooked brown rice","123").doesNotContain("1162","example.invalid/rice");
+    }
+    @Test void fixedMealKeysAssignDayAndSlotAndProvideFirstPassGuidance(){
+        String content="{\"meals\":{\"d3-DINNER\":{\"day\":0,\"slot\":\"BREAKFAST\",\"dish\":\"Rice bowl\",\"ingredients\":[{\"ingredientId\":\"rice\",\"grams\":200}]}}}";
+        visionResponse=mapper.writeValueAsString(java.util.Map.of("choices",java.util.List.of(java.util.Map.of("message",java.util.Map.of("content",content)))));
+        var result=planning("test-key").propose(planningInput(),"Goals","Preferences",java.util.Map.of(),null,java.util.List.of("d3-DINNER"),java.util.List.of());
+        assertThat(result.meals()).singleElement().satisfies(m->{assertThat(m.day()).isEqualTo(3);assertThat(m.slot()).isEqualTo(PlanningModels.Slot.DINNER);});
+        var request=mapper.readTree(visionBody.get());var facts=mapper.readTree(request.path("messages").path(1).path("content").asString());
+        assertThat(facts.path("mealTemplate").propertyNames()).containsExactly("d3-DINNER");
+        assertThat(facts.path("mealNutrientGuidance").has("d3-DINNER")).isTrue();
+        assertThat(facts.path("maxIngredientsPerMeal").asInt()).isEqualTo(8);
+    }
+    @Test void newPlanUsesAllTwentyOneFixedSlotsAndMissingSlotsRemainExplicitlyEmpty(){
+        visionResponse=mapper.writeValueAsString(java.util.Map.of("choices",java.util.List.of(java.util.Map.of("message",java.util.Map.of("content","{\"meals\":{}}")))));
+        var result=planning("test-key").propose(planningInput(),"Goals","Preferences",java.util.Map.of(),null,java.util.List.of(),java.util.List.of());
+        assertThat(result.meals()).hasSize(21);assertThat(result.meals()).allSatisfy(m->assertThat(m.ingredients()).isEmpty());
+        assertThat(result.meals().stream().map(m->m.day()+"-"+m.slot()).distinct()).hasSize(21);
+        var request=mapper.readTree(visionBody.get());var facts=mapper.readTree(request.path("messages").path(1).path("content").asString());
+        assertThat(facts.path("mealTemplate").size()).isEqualTo(21);
+    }
+    @Test void successfulNutritionEvidenceIsCachedWithoutChangingItsProvenanceAndExpires(){
+        var clock=org.mockito.Mockito.mock(Clock.class);Instant first=Instant.parse("2026-11-01T00:00:00Z");org.mockito.Mockito.when(clock.instant()).thenReturn(first);
+        var client=new UsdaNutritionClient(config("test-key"),new ProviderHttp(mapper),clock);
+        var food=new DietaryModels.FoodInput("Rice","Rice, cooked",java.math.BigDecimal.valueOf(100),java.math.BigDecimal.ONE,123L);
+        var a=client.lookup(food);org.mockito.Mockito.when(clock.instant()).thenReturn(first.plusSeconds(60));var b=client.lookup(food);
+        assertThat(nutritionCalls.get()).isEqualTo(1);assertThat(b).isEqualTo(a);
+        org.mockito.Mockito.when(clock.instant()).thenReturn(first.plus(Duration.ofHours(24)));client.lookup(food);assertThat(nutritionCalls.get()).isEqualTo(2);
+    }
+    @Test void concurrentIdenticalNutritionLookupsShareOneSuccessfulFetch()throws Exception{
+        var client=nutrition();var food=new DietaryModels.FoodInput("Rice","Rice, cooked",java.math.BigDecimal.valueOf(100),java.math.BigDecimal.ONE,123L);
+        var pool=java.util.concurrent.Executors.newFixedThreadPool(4);
+        try{
+            var jobs=new java.util.ArrayList<java.util.concurrent.Future<DietaryModels.NutritionMatch>>();
+            for(int i=0;i<4;i++)jobs.add(pool.submit(()->client.lookup(food)));
+            for(var job:jobs)assertThat(job.get(5,java.util.concurrent.TimeUnit.SECONDS).fdcId()).isEqualTo(123);
+            assertThat(nutritionCalls.get()).isEqualTo(1);
+        }finally{pool.shutdownNow();}
+    }
+    @Test void failedNutritionRequestsAreNotCached(){
+        var client=nutrition();var food=new DietaryModels.FoodInput("Rice","Rice, cooked",java.math.BigDecimal.valueOf(100),java.math.BigDecimal.ONE,123L);
+        String good=detailsResponse;detailsResponse="{}";assertThatThrownBy(()->client.lookup(food)).isInstanceOf(AgentException.class);
+        detailsResponse=good;assertThat(client.lookup(food).fdcId()).isEqualTo(123);assertThat(nutritionCalls.get()).isEqualTo(2);
     }
     @Test void malformedPlanningOutputNeverBecomesAValidCandidate() {
         visionResponse="{\"choices\":[]}";

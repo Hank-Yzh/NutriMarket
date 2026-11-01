@@ -158,6 +158,39 @@ class PlanningIntegrationTests {
         assertThat(service.packageFor(MEMBER,p.planId).assessmentRevision()).isEqualTo(a.revision);
         assertThat(mapper.delivery(p.planId,1).state()).isEqualTo("CANCELLED");
     }
+    @Test void nutritionLoadingUsesAtMostFourConcurrentLookups(){
+        var firstBatch=new CountDownLatch(4);var active=new java.util.concurrent.atomic.AtomicInteger();var maximum=new java.util.concurrent.atomic.AtomicInteger();
+        when(nutrition.lookup(any())).thenAnswer(call->{
+            int running=active.incrementAndGet();maximum.accumulateAndGet(running,Math::max);firstBatch.countDown();
+            try{assertThat(firstBatch.await(5,TimeUnit.SECONDS)).isTrue();FoodInput f=call.getArgument(0);return match(f.searchTerm(),"0.95");}
+            finally{active.decrementAndGet();}
+        });
+        var p=generate(assessment(List.of()));assertThat(p.state).isEqualTo(State.DRAFT);assertThat(maximum.get()).isEqualTo(4);
+    }
+    @Test void duplicateSlotIsRepairedWithoutRegeneratingOtherMealsOrReportingFalseDailyDeficits(){
+        var week=new ArrayList<>(candidate("rice").meals());week.set(11,meal(3,Slot.LUNCH,"rice"));
+        when(model.propose(any(),anyString(),anyString(),anyMap(),any(),anyList(),anyList()))
+            .thenReturn(new Candidate(week),new Candidate(List.of(meal(3,Slot.LUNCH,"rice"),meal(3,Slot.DINNER,"rice"))));
+        var p=generate(assessment(List.of()));assertThat(p.state).isEqualTo(State.DRAFT);assertThat(p.attempts).isEqualTo(2);
+        assertThat(p.candidate.meals()).isEqualTo(candidate("rice").meals());
+        verify(model).propose(any(),anyString(),anyString(),anyMap(),any(),eq(List.of("d3-LUNCH","d3-DINNER")),argThat(f->f.stream().anyMatch(x->x.contains("d3-LUNCH: duplicate"))&&f.stream().anyMatch(x->x.contains("d3-DINNER: missing"))&&f.stream().noneMatch(x->x.startsWith("Day 4:"))));
+    }
+    @Test void nutrientRepairRequestsOnlyTheFailingDayAndKeepsOtherDays(){
+        var week=new ArrayList<>(candidate("rice").meals());
+        for(int i=9;i<12;i++)week.set(i,new CandidateMeal(3,Slot.values()[i-9],List.of(new Portion("rice",n("1")))));
+        when(model.propose(any(),anyString(),anyString(),anyMap(),any(),anyList(),anyList()))
+            .thenReturn(new Candidate(week),new Candidate(List.of(meal(3,Slot.BREAKFAST,"rice"),meal(3,Slot.LUNCH,"rice"),meal(3,Slot.DINNER,"rice"))));
+        var p=generate(assessment(List.of()));assertThat(p.state).isEqualTo(State.DRAFT);assertThat(p.attempts).isEqualTo(2);
+        assertThat(p.candidate.meals()).isEqualTo(candidate("rice").meals());
+        verify(model).propose(any(),anyString(),anyString(),anyMap(),any(),eq(List.of("d3-BREAKFAST","d3-LUNCH","d3-DINNER")),argThat(f->f.stream().anyMatch(x->x.startsWith("Day 4:"))));
+    }
+    @Test void tooManyIngredientsNamesExactMealAndSkipsMisleadingNutrientChecks(){
+        var p=new Plan();p.candidate=candidate("rice");p.weekStart=WEEK;p.constraints=new Constraints(List.of(),List.of(),List.of(),targets(),List.of());
+        var meals=new ArrayList<>(p.candidate.meals());var nine=new ArrayList<Portion>();for(int i=0;i<9;i++)nine.add(new Portion("rice",n("20")));
+        meals.set(11,new CandidateMeal(3,Slot.DINNER,nine));p.candidate=new Candidate(meals);engine.validate(p);
+        assertThat(p.issues).containsExactly("d3-DINNER: 9 ingredients; maximum is 8. Remove extra ingredients and keep the dish name consistent.");
+        assertThat(p.dailyNutrition).isEmpty();assertThat(engine.repairLines(p)).containsExactly("d3-DINNER");assertThat(engine.tune(p)).isNull();
+    }
     @Test void arithmeticMissesAreRescaledBeforeAnotherModelAttempt(){
         when(model.propose(any(),anyString(),anyString(),anyMap(),any(),anyList(),anyList())).thenReturn(candidate("rice","150"));var p=generate(assessment(List.of()));
         assertThat(p.state).isEqualTo(State.DRAFT);assertThat(p.attempts).isEqualTo(1);assertThat(p.audit).anyMatch(e->e.action().equals("PORTIONS_ADJUSTED"));
@@ -196,7 +229,7 @@ class PlanningIntegrationTests {
     @Test void blockedAssessmentNeverCallsProviders(){var a=assessment(List.of());a.planningClearance=Clearance.NOT_READY;healthMapper.updateAssessment(a,json.writeValueAsString(a));assertThatThrownBy(()->generate(a)).isInstanceOf(AgentException.class);verifyNoInteractions(model,nutrition);}
     @Test void invalidPlanPausesAfterBoundedRevisionsAndRetriesWithFreshBudget(){
         var a=assessment(List.of("milk"));when(model.propose(any(),anyString(),anyString(),anyMap(),any(),anyList(),anyList())).thenReturn(candidate("yogurt"));var p=generate(a);
-        assertThat(p.state).isEqualTo(State.DEFERRED);assertThat(p.attempts).isEqualTo(3);assertThat(p.issues).anyMatch(i->i.contains("prohibited ingredient"));
+        assertThat(p.state).isEqualTo(State.DEFERRED);assertThat(p.attempts).isEqualTo(2);assertThat(p.issues).anyMatch(i->i.contains("prohibited ingredient"));assertThat(p.issues).anyMatch(i->i.contains("repeated the same invalid"));
         assertThatThrownBy(()->publish(p)).isInstanceOf(AgentException.class);
         when(model.propose(any(),anyString(),anyString(),anyMap(),any(),anyList(),anyList())).thenReturn(candidate("rice"));
         var fixed=service.retry(MEMBER,p.planId,new Version(1));

@@ -13,6 +13,7 @@ import com.nutrimarket.nutrimarket.service.health.HealthService;
 import java.math.BigDecimal;
 import java.time.*;
 import java.util.*;
+import java.util.concurrent.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -20,6 +21,8 @@ import tools.jackson.databind.ObjectMapper;
 
 @Service
 public class PlanningService {
+    private final ExecutorService nutritionWorkers=Executors.newFixedThreadPool(4);
+    @jakarta.annotation.PreDestroy void stopNutritionWorkers(){nutritionWorkers.shutdownNow();}
     private final PlanningMapper mapper;private final HealthMapper healthMapper;private final HealthService health;
     private final PlanningEngine engine;private final IngredientCatalog catalog;private final NutritionClient nutrition;private final PlanningClient client;
     private final PlanningPolicy policy;private final ObjectMapper json;private final TransactionTemplate tx;private final Clock clock;
@@ -93,12 +96,17 @@ public class PlanningService {
         });return run(p);
     }
     private Map<String,IngredientSource> sources(Plan p) {
-        Map<String,IngredientSource> result=new TreeMap<>();
-        for(var ingredient:catalog.all())if(catalog.allowed(ingredient,p.constraints)&&!p.excludedIngredients.contains(ingredient.id())) {
-            var match=nutrition.lookup(new FoodInput(ingredient.name(),ingredient.searchTerm(),BigDecimal.valueOf(100),BigDecimal.ONE,ingredient.fdcId()));
-            result.put(ingredient.id(),new IngredientSource(ingredient,match));
+        Map<String,Future<IngredientSource>> pending=new TreeMap<>();
+        for(var ingredient:catalog.all())if(catalog.allowed(ingredient,p.constraints)&&!p.excludedIngredients.contains(ingredient.id())){
+            pending.put(ingredient.id(),nutritionWorkers.submit(()->new IngredientSource(ingredient,nutrition.lookup(new FoodInput(ingredient.name(),ingredient.searchTerm(),BigDecimal.valueOf(100),BigDecimal.ONE,ingredient.fdcId())))));
         }
-        return result;
+        try{
+            Map<String,IngredientSource> result=new TreeMap<>();
+            for(var entry:pending.entrySet())result.put(entry.getKey(),entry.getValue().get());
+            return result;
+        }catch(InterruptedException e){Thread.currentThread().interrupt();throw AgentException.provider("NUTRITION_INTERRUPTED","Nutrition loading was interrupted. Retry generation.");}
+        catch(ExecutionException e){if(e.getCause() instanceof RuntimeException r)throw r;throw AgentException.provider("NUTRITION_FAILURE","Nutrition evidence could not be loaded.");}
+        finally{pending.values().forEach(task->{if(!task.isDone())task.cancel(true);});}
     }
     private Plan run(Plan initial){return run(initial,client);}
     private Plan run(Plan initial,PlanningClient source) {
@@ -114,14 +122,18 @@ public class PlanningService {
                 if(available.isEmpty())throw AgentException.provider("NO_ELIGIBLE_INGREDIENTS","No ingredients satisfy the current constraints.");
                 var input=health.planningInput(p.memberId,p.assessmentId);var profile=health.profile(p.memberId);
                 var info=profile.information();var styles=info.mealStyles()==null||info.mealStyles().isEmpty()?"":"Preferred meal styles: "+String.join(", ",info.mealStyles())+". ";
-                var proposed=source.propose(input,info.goals(),styles+info.preferences(),available,p.candidate,p.affectedLines,p.issues);
+                var repairLines=engine.repairLines(p);
+                String previousCandidate=json.writeValueAsString(p.candidate);var previousIssues=List.copyOf(p.issues);
+                var proposed=source.propose(input,info.goals(),styles+info.preferences(),available,p.candidate,repairLines,p.issues);
                 // Retain nutrition evidence for unchanged meals during a partial replan.
-                var merged=engine.merge(p.candidate,proposed,p.affectedLines);
-                if(merged==null)throw AgentException.provider("INVALID_PLAN_RESPONSE","The model did not return the required meal lines. Retry without changing unaffected meals.");
+                var merged=engine.merge(p.candidate,proposed,repairLines);
+                if(merged==null)throw AgentException.provider("INVALID_PLAN_RESPONSE","The model did not return exactly one replacement for each requested meal slot: "+String.join(", ",repairLines)+". Unaffected meals were preserved.");
                 p.sources.putAll(available);p.candidate=merged;engine.validate(p);
                 // Rescale portions deterministically before spending another model attempt on arithmetic misses.
                 if(!p.issues.isEmpty()){var tuned=engine.tune(p);if(tuned!=null){p.candidate=tuned;engine.validate(p);event(p,"PORTIONS_ADJUSTED","Proposed portions were rescaled toward daily target midpoints; ingredients and unaffected meals were not changed.");}}
-                p.state=p.issues.isEmpty()?State.DRAFT:p.attempts>=policy.maxRevisions()?State.DEFERRED:State.GENERATING;
+                boolean repeated=!p.issues.isEmpty()&&previousIssues.equals(p.issues)&&previousCandidate.equals(json.writeValueAsString(p.candidate));
+                if(repeated){var issues=new ArrayList<>(p.issues);issues.add("The model repeated the same invalid meals without fixing the feedback. Generation stopped to avoid repeating identical requests.");p.issues=List.copyOf(issues);}
+                p.state=p.issues.isEmpty()?State.DRAFT:repeated||p.attempts>=policy.maxRevisions()?State.DEFERRED:State.GENERATING;
                 event(p,"VALIDATION_RESULT",p.issues.isEmpty()?"Numeric and recognised ingredient constraints passed.":String.join(" ",p.issues));
             } catch(AgentException e) {
                 p.state=State.DEFERRED;p.issues=List.of(e.getMessage());event(p,"PROVIDER_FAILURE",e.code());

@@ -17,14 +17,59 @@ public class PlanningEngine {
     private final IngredientCatalog catalog;private final PlanningPolicy policy;
     public PlanningEngine(IngredientCatalog catalog,PlanningPolicy policy){this.catalog=catalog;this.policy=policy;}
     public static String line(CandidateMeal meal){return "d"+meal.day()+"-"+meal.slot();}
+    public static List<String> mealLines(){
+        return com.nutrimarket.nutrimarket.model.planning.PlanningRules.mealLines();
+    }
     public Candidate merge(Candidate existing,Candidate proposed,List<String> affected) {
         if(affected.isEmpty())return proposed;
-        if(existing==null||proposed==null||proposed.meals()==null) return null;
-        // The model sometimes echoes the whole week; only affected lines are taken, so unaffected meals can never change.
-        Map<String,CandidateMeal> replacements=new HashMap<>();
+        if(existing==null||existing.meals()==null||proposed==null||proposed.meals()==null)return null;
+        Map<String,CandidateMeal> replacements=new HashMap<>(),kept=new HashMap<>();
         for(var meal:proposed.meals())if(meal!=null&&affected.contains(line(meal))&&replacements.put(line(meal),meal)!=null)return null;
         if(!replacements.keySet().equals(new HashSet<>(affected)))return null;
-        return new Candidate(existing.meals().stream().map(m->replacements.getOrDefault(line(m),m)).toList());
+        for(var meal:existing.meals())if(meal!=null&&!affected.contains(line(meal))&&mealLines().contains(line(meal))){
+            if(kept.put(line(meal),meal)!=null)return null;
+        }
+        List<CandidateMeal> merged=new ArrayList<>();
+        for(String line:mealLines()){
+            var meal=affected.contains(line)?replacements.get(line):kept.get(line);
+            if(meal==null)return null;merged.add(meal);
+        }
+        return new Candidate(merged);
+    }
+    /** Describe structural errors before computing totals: a skipped meal is not evidence of nutrient deficiency. */
+    public List<String> structureIssues(Candidate candidate){
+        List<String> issues=new ArrayList<>();Map<String,Integer> counts=new HashMap<>();
+        if(candidate==null||candidate.meals()==null)return List.of("Exactly 21 meals are required, covering seven days and three meal slots per day.");
+        int index=0;
+        for(var meal:candidate.meals()){
+            index++;
+            if(meal==null||meal.day()<0||meal.day()>6||meal.slot()==null){issues.add("Meal entry "+index+": invalid day or slot; use days 0–6 and BREAKFAST, LUNCH or DINNER.");continue;}
+            String id=line(meal);counts.merge(id,1,Integer::sum);
+            if(meal.ingredients()==null||meal.ingredients().isEmpty())issues.add(id+": missing ingredients; supply 1–8 distinct ingredients.");
+            else if(meal.ingredients().size()>8)issues.add(id+": "+meal.ingredients().size()+" ingredients; maximum is 8. Remove extra ingredients and keep the dish name consistent.");
+        }
+        for(String id:mealLines()){
+            int count=counts.getOrDefault(id,0);
+            if(count==0)issues.add(id+": missing meal; supply exactly one meal for this slot.");
+            else if(count>1)issues.add(id+": duplicate meal ("+count+" entries); supply exactly one meal for this slot.");
+        }
+        return List.copyOf(issues);
+    }
+    /** Repair only failed slots, or all three slots of a day with nutrient errors. Replans never widen their original scope. */
+    public List<String> repairLines(Plan p){
+        if(p.candidate==null||p.issues.isEmpty())return p.affectedLines;
+        Set<String> failed=new LinkedHashSet<>();boolean global=false;
+        for(String issue:p.issues){
+            var line=java.util.regex.Pattern.compile("^(d[0-6]-(?:BREAKFAST|LUNCH|DINNER)):").matcher(issue);
+            var day=java.util.regex.Pattern.compile("^Day ([1-7]):").matcher(issue);
+            if(line.find())failed.add(line.group(1));
+            else if(day.find()){int d=Integer.parseInt(day.group(1))-1;for(Slot slot:Slot.values())failed.add("d"+d+"-"+slot);}
+            else if(!issue.startsWith("The model repeated"))global=true;
+        }
+        List<String> allowed=p.affectedLines.isEmpty()?mealLines():p.affectedLines;
+        if(global||failed.isEmpty())return allowed;
+        var selected=allowed.stream().filter(failed::contains).toList();
+        return selected.isEmpty()?allowed:selected;
     }
     public boolean preservesUnaffected(Candidate existing,Candidate proposed,List<String> affected) {
         if(existing==null||proposed==null||proposed.meals()==null)return false;
@@ -34,17 +79,18 @@ public class PlanningEngine {
     }
     /** Rescales proposed portions toward daily target midpoints. Ingredients, meals and unaffected replan lines stay as proposed; validate() remains authoritative. */
     public Candidate tune(Plan p) {
-        var c=p.candidate;if(c==null||c.meals()==null||c.meals().size()!=21)return null;
+        var c=p.candidate;if(!structureIssues(c).isEmpty())return null;
         for(var meal:c.meals())if(meal==null||meal.slot()==null||meal.ingredients()==null||meal.ingredients().stream().anyMatch(i->i==null||i.grams()==null||i.grams().signum()<=0||catalog.get(i.ingredientId())==null||p.sources.get(i.ingredientId())==null))return null;
         var keys=new ArrayList<>(p.constraints.dailyTargets().keySet());int n=keys.size();double[] mid=new double[n],half=new double[n];
         // Missing nutrient data is never treated as zero, so such plans are left for validation feedback.
         for(var meal:c.meals())for(var portion:meal.ingredients())if(perGram(p,portion.ingredientId(),keys)==null)return null;
         for(int k=0;k<n;k++){var t=p.constraints.dailyTargets().get(keys.get(k));mid[k]=(t.minimum().doubleValue()+t.maximum().doubleValue())/2;half[k]=Math.max((t.maximum().doubleValue()-t.minimum().doubleValue())/2,mid[k]*0.01);}
+        Set<String> repairable=new HashSet<>(repairLines(p));
         var meals=c.meals();double[][] grams=new double[meals.size()][];
         for(int m=0;m<meals.size();m++)grams[m]=meals.get(m).ingredients().stream().mapToDouble(i->i.grams().doubleValue()).toArray();
         for(int day=0;day<7;day++) {
             List<int[]> free=new ArrayList<>();List<double[]> coefficients=new ArrayList<>();double[] total=new double[n];
-            for(int m=0;m<meals.size();m++){var meal=meals.get(m);if(meal.day()!=day)continue;boolean tunable=p.affectedLines.isEmpty()||p.affectedLines.contains(line(meal));
+            for(int m=0;m<meals.size();m++){var meal=meals.get(m);if(meal.day()!=day)continue;boolean tunable=(p.affectedLines.isEmpty()||p.affectedLines.contains(line(meal)))&&(p.issues.isEmpty()||repairable.contains(line(meal)));
                 for(int i=0;i<grams[m].length;i++){var a=perGram(p,meal.ingredients().get(i).ingredientId(),keys);for(int k=0;k<n;k++)total[k]+=a[k]*grams[m][i];if(tunable){free.add(new int[]{m,i});coefficients.add(a);}}}
             // Coordinate descent on bounded least squares; the small penalty keeps portions close to the proposal.
             for(int sweep=0;sweep<500;sweep++) {
@@ -75,11 +121,10 @@ public class PlanningEngine {
     }
     public void validate(Plan p) {
         p.issues=new ArrayList<>();p.sourceNotes=new ArrayList<>();p.meals=new ArrayList<>();p.dailyNutrition=new ArrayList<>();
-        if(p.candidate==null || p.candidate.meals()==null || p.candidate.meals().size()!=21){p.issues.add("Exactly 21 meals are required, covering seven days and three meal slots per day.");return;}
-        Set<String> seen=new HashSet<>(),noted=new HashSet<>();
+        p.issues.addAll(structureIssues(p.candidate));if(!p.issues.isEmpty())return;
+        Set<String> noted=new HashSet<>();
         Map<Integer,Map<String,BigDecimal>> days=new TreeMap<>();
         for(var meal:p.candidate.meals()) {
-            if(meal==null || meal.day()<0 || meal.day()>6 || meal.slot()==null || !seen.add(line(meal)) || meal.ingredients()==null || meal.ingredients().isEmpty() || meal.ingredients().size()>8){p.issues.add("Invalid or duplicate day/slot, or invalid ingredient count.");continue;}
             Map<String,BigDecimal> totals=new TreeMap<>();Set<String> ids=new HashSet<>();BigDecimal weight=BigDecimal.ZERO;
             for(var portion:meal.ingredients()) {
                 if(portion==null){p.issues.add(line(meal)+": missing ingredient.");continue;}
